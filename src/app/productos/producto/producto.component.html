@@ -1,0 +1,30 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <input type="hidden" name="codigo" #codigo="ngModel" [(ngModel)]="service.formData.codigo">
+    
+    <div class="form-group">
+      <label>Descripción</label>
+      <input name="descripcion" #descripcion="ngModel" [(ngModel)]="service.formData.descripcion" class="form-control" required>
+      <div class="validation-error" *ngIf="descripcion.invalid && descripcion.touched">Este campo es obligatorio.</div>
+    </div>
+    
+    <div class="form-group">
+      <label>Detalle</label>
+      <input name="detalle" #detalle="ngModel" [(ngModel)]="service.formData.detalle" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Precio</label>
+        <input name="precio" #precio="ngModel" [(ngModel)]="service.formData.precio" class="form-control">
+        <div class="validation-error" *ngIf="precio.invalid && precio.touched">Este campo es obligatorio.</div>
+      </div>
+
+      <div class="form-group">
+          <label>Stock</label>
+          <input name="stock" #precio="ngModel" [(ngModel)]="service.formData.stock" class="form-control">
+          <div class="validation-error" *ngIf="stock.invalid && stock.touched">Este campo es obligatorio.</div>
+        </div>
+    
+    <div class="form-group">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">REGISTRAR</button>
+      </div>
+  </form>
