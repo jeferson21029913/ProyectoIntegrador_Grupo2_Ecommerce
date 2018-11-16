@@ -1,0 +1,67 @@
+<form #form="ngForm"  autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="codigo" #codigo="ngModel" [(ngModel)]="service.formData.codigoUsu">
+  
+  <div class="form-group">
+    <label>Nombre de usuario</label>
+    <input name="descripcion" #nombre="ngModel" [(ngModel)]="service.formData.nombreUsu" class="form-control" required>
+    <div class="validation-error" *ngIf="descripcion.invalid && descripcion.touched">Este campo es obligatorio.</div>
+  </div>
+
+  <div class="form-group">
+    <label>Apellido paterno</label>
+    <input name="descripcion" #nombre="ngModel" [(ngModel)]="service.formData.nombreUsu" class="form-control" required>
+    <div class="validation-error" *ngIf="descripcion.invalid && descripcion.touched">Este campo es obligatorio.</div>
+  </div>
+
+  <div class="form-group">
+    <label>Apellido Materno</label>
+    <input name="descripcion" #nombre="ngModel" [(ngModel)]="service.formData.nombreUsu" class="form-control" required>
+    <div class="validation-error" *ngIf="descripcion.invalid && descripcion.touched">Este campo es obligatorio.</div>
+  </div>
+
+  <div class="form-group">
+    <label>DNI</label>
+    <input name="descripcion" #nombre="ngModel" [(ngModel)]="service.formData.nombreUsu" class="form-control" required>
+    <div class="validation-error" *ngIf="descripcion.invalid && descripcion.touched">Este campo es obligatorio.</div>
+  </div>
+  
+
+  <div class="form-group">
+      <label>Celular Usuario</label>
+      <input name="precio" #precio="ngModel" [(ngModel)]="service.formData.precio" class="form-control">
+      <div class="validation-error" *ngIf="precio.invalid && precio.touched">Este campo es obligatorio.</div>
+    </div>
+
+    <div class="form-group">
+      <label>Nick usuario</label>
+      <input name="descripcion" #nombre="ngModel" [(ngModel)]="service.formData.nombreUsu" class="form-control" required>
+      <div class="validation-error" *ngIf="descripcion.invalid && descripcion.touched">Este campo es obligatorio.</div>
+    </div>    
+ 
+    <div class="form-group">
+      <label>Clave usuario</label>
+      <input name="descripcion" #nombre="ngModel" [(ngModel)]="service.formData.nombreUsu" class="form-control" required>
+      <div class="validation-error" *ngIf="descripcion.invalid && descripcion.touched">Este campo es obligatorio.</div>
+    </div>
+
+    <div class="form-group">
+      <label>fecha</label>
+      <input name="descripcion" #nombre="ngModel" [(ngModel)]="service.formData.nombreUsu" class="form-control" required>
+      <div class="validation-error" *ngIf="descripcion.invalid && descripcion.touched">Este campo es obligatorio.</div>
+    </div>
+
+    
+    <div class="form-group">
+        <label>Mail usuario</label>
+        <input name="stock" #stock="ngModel" [(ngModel)]="service.formData.stock" class="form-control">
+        <div class="validation-error" *ngIf="stock.invalid && stock.touched">Este campo es obligatorio.</div>
+      </div>
+  
+     
+
+
+  <div class="form-group">
+      <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">REGISTRAR</button>
+    </div>
+</form>
+
