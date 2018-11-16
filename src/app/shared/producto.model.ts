@@ -1,5 +1,5 @@
 export class Producto {
-codigo:number;
+codigo:string;
 descripcion:string;	
 detalle: string;
 precio:number;	

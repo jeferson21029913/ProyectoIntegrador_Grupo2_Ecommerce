@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Producto } from './producto.model';
+import {HttpClient} from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -7,5 +8,11 @@ import { Producto } from './producto.model';
 export class ProductoService {
 
   formData: Producto
-  constructor() { }
+  readonly rootURL = "http://localhost:7741/api"
+
+  constructor(private http:HttpClient) { }
+
+  postProducto(formData: Producto){
+    return this.http.post(this.rootURL+'/Producto',formData);
+  }
 }

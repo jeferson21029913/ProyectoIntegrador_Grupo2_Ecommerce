@@ -19,7 +19,7 @@ export class ProductoComponent implements OnInit {
     if (form != null)
       form.resetForm();
     this.service.formData = {
-      codigo:null,
+      codigo:'',
       descripcion:'',
       detalle:'',
       precio:null,
@@ -27,6 +27,15 @@ export class ProductoComponent implements OnInit {
       marca:null,
       categoria:null
     }
+}
 
+onSubmit(form:NgForm){
+this.insertRecord(form);
+}
+
+insertRecord(form:NgForm){
+this.service.postProducto(form.value).subscribe(res => {
+  this.resetForm(form);
+});
 }
 }
