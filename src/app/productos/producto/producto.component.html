@@ -2,7 +2,7 @@
     <input type="hidden" name="codigo" #codigo="ngModel" [(ngModel)]="service.formData.codigo">
     
     <div class="form-group">
-      <label>Descripción</label>
+      <label>Descripción1</label>
       <input name="descripcion" #descripcion="ngModel" [(ngModel)]="service.formData.descripcion" class="form-control" required>
       <div class="validation-error" *ngIf="descripcion.invalid && descripcion.touched">Este campo es obligatorio.</div>
     </div>
