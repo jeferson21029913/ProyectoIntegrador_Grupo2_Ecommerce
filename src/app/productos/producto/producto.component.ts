@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from 'src/app/shared/producto.service';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-producto',
@@ -9,7 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ProductoComponent implements OnInit {
 
-  constructor(private service: ProductoService) { }
+  constructor(private service: ProductoService,private toastr:ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -35,8 +36,8 @@ this.insertRecord(form);
 }
 
 insertRecord(form:NgForm){
-  
 this.service.postProducto(form.value).subscribe(res => {
+  this.toastr.success('Inserted successfully','Producto - Registro')
   this.resetForm(form);
 });
 }
