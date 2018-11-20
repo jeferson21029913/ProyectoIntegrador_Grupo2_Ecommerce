@@ -30,26 +30,45 @@ export class ProductoComponent implements OnInit {
     }
 }
 
-onSubmit(form:NgForm){
- if(form.value.codPro==null)
-this.insertRecord(form);
-else this.updateRecord(form);
+onRegistrar(form:NgForm){
+ this.insertRecord(form);
 }
 
+onActualizar(form:NgForm){
+  this.updateRecord(form);
+ }
+
+onEliminar(form:NgForm){
+  this.deleteRecord(form);
+ }
+//if(form.value.codPro==null) {this.insertRecord(form);}
+//else {this.updateRecord(form);}
+
 insertRecord(form:NgForm){
-this.service.postProducto(form.value).subscribe(res => {
+  if(confirm('¿Está seguro de que desea registrar este producto?')){
+  this.service.postProducto(form.value).subscribe(res => {
   this.toastr.success('El producto se registró correctamente.','ECOMMERCE');
   this.resetForm(form);
   this.service.refreshList();
-});
+});}
 }
 
 updateRecord(form:NgForm){
+  if(confirm('¿Está seguro de que desea actualizar este producto?')){
   this.service.putProducto(form.value).subscribe(res =>{
     this.toastr.success('El producto se actualizó correctamente.','ECOMMERCE');
     this.resetForm(form);
     this.service.refreshList();
-  });
+  });}
+}
+
+deleteRecord(form:NgForm){
+  if(confirm('¿Está seguro de que desea eliminar este producto?')){
+    this.service.deleteProducto(form.value).subscribe(res =>{
+    this.toastr.success('El producto se eliminó correctamente.','ECOMMERCE');
+    this.resetForm(form);
+    this.service.refreshList();
+  });}
 }
 
 

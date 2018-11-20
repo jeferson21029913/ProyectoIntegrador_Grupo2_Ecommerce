@@ -3,6 +3,7 @@ import { ProductoService } from 'src/app/shared/producto.service';
 import { Producto } from 'src/app/shared/producto.model';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: 'app-producto-list',
   templateUrl: './producto-list.component.html',
@@ -20,12 +21,14 @@ export class ProductoListComponent implements OnInit {
     this.service.formData=Object.assign({},producto);
   }
 
-  onDelete(producto:Producto){
+ /* onDelete(producto:Producto){
     if(confirm('¿Está seguro de que desea eliminar este producto?')){
     this.service.deleteProducto(producto).subscribe(res=>{
       this.service.refreshList();
       this.toastr.success('El producto se eliminó correctamente.','ECOMMERCE');
     });
+  }}*/
+
   }
-  }
-}
+
+ 
