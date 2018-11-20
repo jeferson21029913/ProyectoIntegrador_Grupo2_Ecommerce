@@ -1,52 +1,52 @@
 <form #form="ngForm"  (submit)="onSubmit(form)" autocomplete="off" >
     
-    <div class="form-group">
-      <label>Código</label>
-      <input name="codigo" #codigo="ngModel" [(ngModel)]="service.formData.codigo" class="form-control" required>
-      <div class="validation-error" *ngIf="codigo.invalid && codigo.touched">Este campo es obligatorio.</div>
-    </div>
+  <div class="form-group">
+    <label>Código</label>
+    <input name="codPro" #codPro="ngModel" [(ngModel)]="service.formData.codPro" class="form-control" required>
+    <div class="validation-error" *ngIf="codPro.invalid && codPro.touched">Este campo es obligatorio.</div>
+  </div>
 
 
-    <div class="form-group">
-      <label>Descripción</label>
-      <input name="descripcion" #descripcion="ngModel" [(ngModel)]="service.formData.descripcion" class="form-control" required>
-      <div class="validation-error" *ngIf="descripcion.invalid && descripcion.touched">Este campo es obligatorio.</div>
+  <div class="form-group">
+    <label>Descripción</label>
+    <input name="descripcionPro" #descripcionPro="ngModel" [(ngModel)]="service.formData.descripcionPro" class="form-control" required>
+    <div class="validation-error" *ngIf="descripcionPro.invalid && descripcionPro.touched">Este campo es obligatorio.</div>
+  </div>
+  
+  <div class="form-group">
+    <label>Detalle</label>
+    <input name="detallePro" #detallePro="ngModel" [(ngModel)]="service.formData.detallePro" class="form-control">
+  </div>
+
+  <div class="form-group">
+      <label>Precio</label>
+      <input name="precioPro" #precioPro="ngModel" [(ngModel)]="service.formData.precioPro" class="form-control">
+      <div class="validation-error" *ngIf="precioPro.invalid && precioPro.touched">Este campo es obligatorio.</div>
     </div>
+
     
-    <div class="form-group">
-      <label>Detalle</label>
-      <input name="detalle" #detalle="ngModel" [(ngModel)]="service.formData.detalle" class="form-control">
-    </div>
+ 
 
     <div class="form-group">
-        <label>Precio</label>
-        <input name="precio" #precio="ngModel" [(ngModel)]="service.formData.precio" class="form-control">
-        <div class="validation-error" *ngIf="precio.invalid && precio.touched">Este campo es obligatorio.</div>
+        <label>Stock</label>
+        <input name="stockPro" #stockPro="ngModel" [(ngModel)]="service.formData.stockPro" class="form-control">
+        <div class="validation-error" *ngIf="stockPro.invalid && stockPro.touched">Este campo es obligatorio.</div>
       </div>
-
-      
-   
+  
+      <div class="form-group">
+        <label>Categoría</label>
+        <input name="codProdCat" #codProdCat="ngModel" [(ngModel)]="service.formData.codProdCat" class="form-control">
+        <div class="validation-error" *ngIf="codProdCat.invalid && codProdCat.touched">Este campo es obligatorio.</div>
+      </div>
 
       <div class="form-group">
-          <label>Stock</label>
-          <input name="stock" #stock="ngModel" [(ngModel)]="service.formData.stock" class="form-control">
-          <div class="validation-error" *ngIf="stock.invalid && stock.touched">Este campo es obligatorio.</div>
-        </div>
-    
-        <div class="form-group">
-          <label>Marca</label>
-          <input name="marca" #marca="ngModel" [(ngModel)]="service.formData.marca" class="form-control">
-          <div class="validation-error" *ngIf="marca.invalid && marca.touched">Este campo es obligatorio.</div>
-        </div>
-
-        <div class="form-group">
-          <label>Categoría</label>
-          <input name="categoria" #categoria="ngModel" [(ngModel)]="service.formData.categoria" class="form-control">
-          <div class="validation-error" *ngIf="categoria.invalid && categoria.touched">Este campo es obligatorio.</div>
-        </div>
-
-
-    <div class="form-group">
-        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+        <label>Marca</label>
+        <input name="codProdMar" #codProdMar="ngModel" [(ngModel)]="service.formData.codProdMar" class="form-control">
+        <div class="validation-error" *ngIf="codProdMar.invalid && codProdMar.touched">Este campo es obligatorio.</div>
       </div>
-  </form>
+
+
+  <div class="form-group">
+      <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+    </div>
+</form>

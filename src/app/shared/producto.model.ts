@@ -1,9 +1,9 @@
 export class Producto {
-codigo:string;
-descripcion:string;	
-detalle: string;
-precio:number;	
-stock:number;
-categoria:number;
-marca:number;
+    codPro:string;
+    descripcionPro:string;	
+    detallePro: string;
+    precioPro:number;	
+    stockPro:number;
+    codProdCat:number;
+    codProdMar:number;
 }

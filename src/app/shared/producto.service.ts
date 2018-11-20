@@ -6,13 +6,14 @@ import {HttpClient} from '@angular/common/http'
   providedIn: 'root'
 })
 export class ProductoService {
+  
 
   formData: Producto
-  readonly rootURL = "http://localhost:7741/api"
+  readonly rootURL = "http://localhost:56527/api/"
 
   constructor(private http:HttpClient) { }
 
   postProducto(formData: Producto){
-    return this.http.post(this.rootURL+'/Producto',formData);
+    return this.http.post(this.rootURL+'Producto/crearProducto',formData);
   }
 }
