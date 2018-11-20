@@ -31,14 +31,27 @@ export class ProductoComponent implements OnInit {
 }
 
 onSubmit(form:NgForm){
-  console.log("entro al boton", form.value)
+ if(form.value.codPro==null)
 this.insertRecord(form);
+else this.updateRecord(form);
 }
 
 insertRecord(form:NgForm){
 this.service.postProducto(form.value).subscribe(res => {
-  this.toastr.success('Inserted successfully','Producto - Registro')
+  this.toastr.success('El producto se registró correctamente.','ECOMMERCE');
   this.resetForm(form);
+  this.service.refreshList();
 });
 }
+
+updateRecord(form:NgForm){
+  this.service.putProducto(form.value).subscribe(res =>{
+    this.toastr.success('El producto se actualizó correctamente.','ECOMMERCE');
+    this.resetForm(form);
+    this.service.refreshList();
+  });
+}
+
+
+
 }
