@@ -1,0 +1,87 @@
+<form #form="ngForm"  autocomplete="off">
+
+  <div class="form-group">
+    <label>Codigo</label>
+    <input name="codUsu" #codUsu="ngModel" [(ngModel)]="service.formData.codUsu" class="form-control" required>
+    <div class="validation-error" *ngIf="codUsu.invalid && codUsu.touched">Este campo es obligatorio.</div>
+  </div>
+
+  <div class="form-group">
+      <label>Nombre</label>
+      <input name="nomUsu" #nomUsu="ngModel" [(ngModel)]="service.formData.nomUsu" class="form-control">
+      <div class="validation-error" *ngIf="nomUsu.invalid && nomUsu.touched">Este campo es obligatorio.</div>
+  </div>
+
+  <div class="form-group">
+      <label>Apellido Paterno</label>
+      <input name="apePatUsu" #apePatUsu="ngModel" [(ngModel)]="service.formData.apePatUsu" class="form-control">
+      <div class="validation-error" *ngIf="apePatUsu.invalid && apePatUsu.touched">Este campo es obligatorio.</div>
+  </div>
+
+  <div class="form-group">
+      <label>Apellido Materno</label>
+      <input name="apeMatUsu" #apeMatUsu="ngModel" [(ngModel)]="service.formData.apeMatUsu" class="form-control">
+      <div class="validation-error" *ngIf="apeMatUsu.invalid && apeMatUsu.touched">Este campo es obligatorio.</div>
+  </div>
+
+  <div class="form-row">
+
+    <div class="form-group col-md-6">
+        <label>DNI</label>
+        <input name="dniUsu" #dniUsu="ngModel" [(ngModel)]="service.formData.dniUsu" class="form-control">
+        <div class="validation-error" *ngIf="dniUsu.invalid && dniUsu.touched">Este campo es obligatorio.</div>
+    </div>
+
+    <div class="form-group col-md-6">
+        <label>Celular</label>
+        <input name="celUsu" #celUsu="ngModel" [(ngModel)]="service.formData.celUsu" class="form-control">
+        <div class="validation-error" *ngIf="celUsu.invalid && celUsu.touched">Este campo es obligatorio.</div>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+      <label>Nombre de Usuario(Nickname)</label>
+      <input name="nickUsu" #nickUsu="ngModel" [(ngModel)]="service.formData.nickUsu" class="form-control">
+      <div class="validation-error" *ngIf="nickUsu.invalid && nickUsu.touched">Este campo es obligatorio.</div>
+  </div>
+
+  <div class="form-group">
+      <label>Contraseña</label>
+      <input name="pwdUsu" #pwdUsu="ngModel" [(ngModel)]="service.formData.pwdUsu" class="form-control">
+      <div class="validation-error" *ngIf="pwdUsu.invalid && pwdUsu.touched">Este campo es obligatorio.</div>
+  </div>
+
+  <div class="form-group">
+      <label>Fecha de Registro</label>
+      <input name="fechaRegistroUsu" #fechaRegistroUsu="ngModel" [(ngModel)]="service.formData.fechaRegistroUsu" class="form-control">
+      <div class="validation-error" *ngIf="fechaRegistroUsu.invalid && fechaRegistroUsu.touched">Este campo es obligatorio.</div>
+  </div>
+
+  <div class="form-group">
+      <label>Tipo de Usuario</label>
+      <input name="codTipoUsu" #codTipoUsu="ngModel" [(ngModel)]="service.formData.codTipoUsu" class="form-control">
+      <div class="validation-error" *ngIf="codTipoUsu.invalid && codTipoUsu.touched">Este campo es obligatorio.</div>
+  </div>
+
+  <div class="form-group">
+      <label>Correo</label>
+      <input name="mailUsu" #mailUsu="ngModel" [(ngModel)]="service.formData.mailUsu" class="form-control">
+      <div class="validation-error" *ngIf="mailUsu.invalid && mailUsu.touched">Este campo es obligatorio.</div>
+  </div>
+
+  <div class="form-row">
+
+      <div class="form-group col-md-6">
+          <button type="submit" (click)="onRegistrar(form)" [disabled]="form.invalid" class="btn btn-lg btn-block">Registrar</button>
+      </div>
+
+      <div class="form-group col-md-6">
+          <button type="submit" (click)="onActualizar(form)" [disabled]="form.invalid" class="btn btn-lg btn-block">Actualizar</button>
+      </div>
+
+  </div>
+
+  
+
+</form>

@@ -10,13 +10,20 @@ import { ProductoComponent } from './productos/producto/producto.component';
 import { ProductosComponent } from './productos/productos.component';
 import { ProductoListComponent } from './productos/producto-list/producto-list.component';
 import { ProductoService } from './shared/producto.service';
+import { EmpleadosComponent } from './empleados/empleados.component';
+import { EmpleadoComponent } from './empleados/empleado/empleado.component';
+import { EmpleadoListComponent } from './empleados/empleado-list/empleado-list.component';
+import { EmpleadoService } from './shared/empleado.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductoComponent,
     ProductosComponent,
-    ProductoListComponent
+    ProductoListComponent,
+    EmpleadosComponent,
+    EmpleadoComponent,
+    EmpleadoListComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +32,7 @@ import { ProductoService } from './shared/producto.service';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [ProductoService],
+  providers: [ProductoService , EmpleadoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
