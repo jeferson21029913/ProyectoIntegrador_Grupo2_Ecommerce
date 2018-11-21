@@ -20,11 +20,12 @@ export class ProductoComponent implements OnInit {
     if (form != null)
       form.resetForm();
     this.service.formData = {
-      codPro:'',
+      codPro:null,
       descripcionPro:'',
       detallePro:'',
       precioPro:null,
       stockPro:null,
+      imgPro:'',
       codProdCat:null,
       codProdMar:null
     }
@@ -38,9 +39,9 @@ onActualizar(form:NgForm){
   this.updateRecord(form);
  }
 
-onEliminar(form:NgForm){
+/*onEliminar(form:NgForm){
   this.deleteRecord(form);
- }
+ }*/
 //if(form.value.codPro==null) {this.insertRecord(form);}
 //else {this.updateRecord(form);}
 
@@ -62,7 +63,7 @@ updateRecord(form:NgForm){
   });}
 }
 
-deleteRecord(form:NgForm){
+/*deleteRecord(form:NgForm){
   if(confirm('¿Está seguro de que desea eliminar este producto?')){
     this.service.deleteProducto(form.value).subscribe(res =>{
     this.toastr.success('El producto se eliminó correctamente.','ECOMMERCE');
@@ -70,7 +71,7 @@ deleteRecord(form:NgForm){
     this.service.refreshList();
   });}
 }
-
+*/
 
 
 }
