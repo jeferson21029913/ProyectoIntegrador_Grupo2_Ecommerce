@@ -19,11 +19,12 @@ import { LoginComponent } from './usuario/login/login.component';
 import { RegistroComponent } from './usuario/registro/registro.component';
 import { HomeComponent } from './home/home.component';
 import { UsuarioService } from './shared/usuario.service';
+import { HomeauxiliarComponent } from './homeauxiliar/homeauxiliar.component';
 
 @NgModule({
   declarations: [
     AppComponent,ProductoComponent,
-    ProductosComponent,ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent],
+    ProductosComponent,ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent, HomeauxiliarComponent],
   imports: [
     BrowserModule, MatSelectModule, FormsModule, HttpClientModule,BrowserAnimationsModule,ToastrModule.forRoot(),
     MatFormFieldModule,MatSelectModule
