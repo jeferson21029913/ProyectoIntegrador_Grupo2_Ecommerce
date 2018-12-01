@@ -10,7 +10,6 @@ import { ProductoComponent } from './productos/producto/producto.component';
 import { ProductosComponent } from './productos/productos.component';
 import { ProductoListComponent } from './productos/producto-list/producto-list.component';
 import { ProductoService } from './shared/producto.service';
-<<<<<<< HEAD
 import { MarcaService } from './shared/marca.service';
 import { CategoriaService } from './shared/categoria.service';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -25,32 +24,11 @@ import { UsuarioService } from './shared/usuario.service';
   declarations: [
     AppComponent,ProductoComponent,
     ProductosComponent,ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent],
-=======
-import { EmpleadosComponent } from './empleados/empleados.component';
-import { EmpleadoComponent } from './empleados/empleado/empleado.component';
-import { EmpleadoListComponent } from './empleados/empleado-list/empleado-list.component';
-import { EmpleadoService } from './shared/empleado.service';
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    ProductoComponent,
-    ProductosComponent,
-    ProductoListComponent,
-    EmpleadosComponent,
-    EmpleadoComponent,
-    EmpleadoListComponent
-  ],
->>>>>>> 380d61af74dc0fb3f62921fa7daf82f07748b8d4
   imports: [
     BrowserModule, MatSelectModule, FormsModule, HttpClientModule,BrowserAnimationsModule,ToastrModule.forRoot(),
     MatFormFieldModule,MatSelectModule
   ],
-<<<<<<< HEAD
   providers: [[MarcaService],[CategoriaService],[ProductoService],[UsuarioService]],
-=======
-  providers: [ProductoService , EmpleadoService],
->>>>>>> 380d61af74dc0fb3f62921fa7daf82f07748b8d4
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,19 +1,12 @@
-<<<<<<< HEAD
 <table class="table table-hover" style="text-align: center">
   <tr style="cursor: text;background-color: darkgray">
      <!-- <td>Código</td>-->
       <td>Imagen</td> 
-=======
-<table class="table table-hover">
-  <tr>
-     <!-- <td>Código</td>-->
->>>>>>> 380d61af74dc0fb3f62921fa7daf82f07748b8d4
       <td>Descripción</td>
       <td>Detalle</td>
       <td>Precio</td>
       <td>Stock</td>
       <td>Categoría</td>
-<<<<<<< HEAD
       <td>Marca</td>  
       <td>ELIMINAR</td>   
   </tr>
@@ -21,24 +14,12 @@
      <td (click)="populateForm(producto)" >
       <img [src]="getImagen(producto.codPro)" 
        style="width:30px;height:30px;" /></td> 
-=======
-      <td>Marca</td>   
-  </tr>
-  <tr *ngFor="let producto of service.list">
-    <!--<td (click)="populateForm(producto)">{{producto.codPro}}</td>-->
->>>>>>> 380d61af74dc0fb3f62921fa7daf82f07748b8d4
     <td (click)="populateForm(producto)">{{producto.descripcionPro}}</td>
     <td (click)="populateForm(producto)">{{producto.detallePro}}</td>
     <td (click)="populateForm(producto)">{{producto.precioPro}}</td>
     <td (click)="populateForm(producto)">{{producto.stockPro}}</td>
-<<<<<<< HEAD
     <td (click)="populateForm(producto)">{{getCategoria(producto.codProdCat)}}</td>
    <td (click)="populateForm(producto)">{{getMarca(producto.codProdMar)}}</td>
-=======
-    <td (click)="populateForm(producto)">{{producto.codProdCat}}</td>
-    <td (click)="populateForm(producto)">{{producto.codProdMar}}</td>    
-  
->>>>>>> 380d61af74dc0fb3f62921fa7daf82f07748b8d4
     <td><button (click)="onDelete(producto)" class="btn btn-sm btn-outline-danger">X</button></td>
   </tr>
 </table>

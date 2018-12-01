@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <form #form="ngForm" autocomplete="off">
   <div style="width:50%;float: left;">
     <input name="controlImagen" type="hidden" #controlImagen [value]="controlar()">
@@ -32,65 +31,6 @@
         <div class="validation-error" *ngIf="(!stockPro.errors?.required && stockPro.errors?.pattern && stockPro.touched) ||
          (!stockPro.errors?.required && stockPro.value==0 && stockPro.touched)">
           Ingrese un número entero positivo.</div>
-=======
-<form #form="ngForm"  autocomplete="off" >
-    
-  
-
-    <input name="codPro" type="hidden" #codPro="ngModel" [(ngModel)]="service.formData.codPro">
-  
-
-  <div class="form-group">
-    <label>Descripción</label>
-    <input name="descripcionPro" #descripcionPro="ngModel" [(ngModel)]="service.formData.descripcionPro" class="form-control" required>
-    <div class="validation-error" *ngIf="descripcionPro.invalid && descripcionPro.touched">Este campo es obligatorio.</div>
-  </div>
-  
-  <div class="form-group">
-    <label>Detalle</label>
-    <input name="detallePro" #detallePro="ngModel" [(ngModel)]="service.formData.detallePro" class="form-control">
-  </div>
-
-
-  <div class="form-row">
-      <div class="form-group col-md-6">
-          <label>Precio</label>
-          <input name="precioPro" #precioPro="ngModel" [(ngModel)]="service.formData.precioPro" class="form-control">
-          <div class="validation-error" *ngIf="precioPro.invalid && precioPro.touched">Este campo es obligatorio.</div>
-      </div>
-      <div class="form-group  col-md-6">
-          <label>Stock</label>
-        <input name="stockPro" #stockPro="ngModel" [(ngModel)]="service.formData.stockPro" class="form-control">
-        <div class="validation-error" *ngIf="stockPro.invalid && stockPro.touched">Este campo es obligatorio.</div>
-      </div>
-  </div>
-
-  <div class="form-group">
-      <label>Imagen</label>
-      <input name="imgPro" #imgPro="ngModel" [(ngModel)]="service.formData.imgPro" class="form-control">
-      <div class="validation-error" *ngIf="imgPro.invalid && imgPro.touched">Este campo es obligatorio.</div>
-    </div>
-
-  <!--<div class="form-group">
-      <label>Precio</label>
-      <input name="precioPro" #precioPro="ngModel" [(ngModel)]="service.formData.precioPro" class="form-control">
-      <div class="validation-error" *ngIf="precioPro.invalid && precioPro.touched">Este campo es obligatorio.</div>
-    </div>-->
-
-    
- 
-
-    <!--<div class="form-group">
-        <label>Stock</label>
-        <input name="stockPro" #stockPro="ngModel" [(ngModel)]="service.formData.stockPro" class="form-control">
-        <div class="validation-error" *ngIf="stockPro.invalid && stockPro.touched">Este campo es obligatorio.</div>
-      </div>-->
-  
-      <div class="form-group">
-        <label>Categoría</label>
-        <input name="codProdCat" #codProdCat="ngModel" [(ngModel)]="service.formData.codProdCat" class="form-control">
-        <div class="validation-error" *ngIf="codProdCat.invalid && codProdCat.touched">Este campo es obligatorio.</div>
->>>>>>> 380d61af74dc0fb3f62921fa7daf82f07748b8d4
       </div>
     </div>
     <br>
@@ -112,7 +52,6 @@
           </mat-option>
         </mat-select>
       </div>
-<<<<<<< HEAD
     </div>
     <br><br>
     <div class="form-row">
@@ -136,30 +75,3 @@
     </div>
   </div>
 </form>
-=======
-
-
-  <!--<div class="form-group">
-      <button type="submit" (click)="onRegistrar(form)" [disabled]="form.invalid" class="btn btn-lg btn-block">REGISTRAR</button>
-    </div>-->
-   
-   <!-- <div class="form-group">
-      <button type="submit" (click)="onActualizar(form)" [disabled]="form.invalid" class="btn btn-lg btn-block">ACTUALIZAR</button>
-    </div>
-
-    <div class="form-group">
-      <button type="submit" (click)="onEliminar(form)" [disabled]="form.invalid" class="btn btn-lg btn-block">ELIMINAR</button>
-    </div>-->
-
-    <div class="form-row">
-       
-        <div class="form-group  col-md-6">
-            <button type="submit" (click)="onRegistrar(form)" [disabled]="form.invalid" class="btn btn-lg btn-block">REGISTRAR</button>
-        </div>
-
-        <div class="form-group col-md-6">
-            <button type="submit" (click)="onActualizar(form)" [disabled]="form.invalid" class="btn btn-lg btn-block">ACTUALIZAR</button>
-          </div>
-    </div>
-</form>
->>>>>>> 380d61af74dc0fb3f62921fa7daf82f07748b8d4
