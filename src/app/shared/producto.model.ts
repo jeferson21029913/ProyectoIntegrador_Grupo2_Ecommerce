@@ -1,9 +1,10 @@
 export class Producto {
-    codPro:string;
+    codPro:number;
     descripcionPro:string;	
     detallePro: string;
     precioPro:number;	
     stockPro:number;
+    imgPro: string;
     codProdCat:number;
     codProdMar:number;
 }

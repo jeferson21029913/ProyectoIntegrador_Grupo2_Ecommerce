@@ -10,22 +10,25 @@ import { ProductoComponent } from './productos/producto/producto.component';
 import { ProductosComponent } from './productos/productos.component';
 import { ProductoListComponent } from './productos/producto-list/producto-list.component';
 import { ProductoService } from './shared/producto.service';
+import { MarcaService } from './shared/marca.service';
+import { CategoriaService } from './shared/categoria.service';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { LoginComponent } from './usuario/login/login.component';
+import { RegistroComponent } from './usuario/registro/registro.component';
+import { HomeComponent } from './home/home.component';
+import { UsuarioService } from './shared/usuario.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProductoComponent,
-    ProductosComponent,
-    ProductoListComponent
-  ],
+    AppComponent,ProductoComponent,
+    ProductosComponent,ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    BrowserModule, MatSelectModule, FormsModule, HttpClientModule,BrowserAnimationsModule,ToastrModule.forRoot(),
+    MatFormFieldModule,MatSelectModule
   ],
-  providers: [ProductoService],
+  providers: [[MarcaService],[CategoriaService],[ProductoService],[UsuarioService]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
