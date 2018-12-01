@@ -66,6 +66,7 @@ export class ProductoComponent implements OnInit {
   resetForm(form?: NgForm) {
     if (form != null)
       form.resetForm();
+<<<<<<< HEAD
       this.service.formData = {
         codPro: null,
         descripcionPro: '',
@@ -84,6 +85,19 @@ export class ProductoComponent implements OnInit {
   onRegistrar(form: NgForm) {
     this.insertRecord(form);
   }
+=======
+    this.service.formData = {
+      codPro:null,
+      descripcionPro:'',
+      detallePro:'',
+      precioPro:null,
+      stockPro:null,
+      imgPro:'',
+      codProdCat:null,
+      codProdMar:null
+    }
+}
+>>>>>>> 380d61af74dc0fb3f62921fa7daf82f07748b8d4
 
   onActualizar(form: NgForm) {
     if(this.service.formData.codPro==null){
@@ -110,6 +124,7 @@ export class ProductoComponent implements OnInit {
     }
   }
 
+<<<<<<< HEAD
   updateRecord(form: NgForm) {
     if (confirm('¿Está seguro de que desea actualizar este producto?')) {
       //console.log(form.value);
@@ -119,6 +134,13 @@ export class ProductoComponent implements OnInit {
         this.service.refreshList();
       });
     }
+=======
+/*onEliminar(form:NgForm){
+  this.deleteRecord(form);
+ }*/
+//if(form.value.codPro==null) {this.insertRecord(form);}
+//else {this.updateRecord(form);}
+>>>>>>> 380d61af74dc0fb3f62921fa7daf82f07748b8d4
 
     
   }
@@ -135,6 +157,7 @@ export class ProductoComponent implements OnInit {
     }    
   }
 
+<<<<<<< HEAD
 controlar(form:NgForm){
   if(this.service.control==0){
     this.variableImagen.nativeElement.value='';
@@ -142,6 +165,12 @@ controlar(form:NgForm){
   }
   if(this.service.controlEliminacion==1){
     //if(this.service.formData.codPro==null){
+=======
+/*deleteRecord(form:NgForm){
+  if(confirm('¿Está seguro de que desea eliminar este producto?')){
+    this.service.deleteProducto(form.value).subscribe(res =>{
+    this.toastr.success('El producto se eliminó correctamente.','ECOMMERCE');
+>>>>>>> 380d61af74dc0fb3f62921fa7daf82f07748b8d4
     this.resetForm(form);
   //}
     this.service.controlEliminacion=0;
@@ -149,5 +178,10 @@ controlar(form:NgForm){
   //console.log(this.service.control);
   return "OK";
 }
+<<<<<<< HEAD
+=======
+*/
+
+>>>>>>> 380d61af74dc0fb3f62921fa7daf82f07748b8d4
 
 }
