@@ -22,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { UsuarioService } from './shared/usuario.service';
 import { HomealuxiliarComponent } from './homealuxiliar/homealuxiliar.component';
 import {EmpleadoComponent } from './empleados/empleado/empleado.component';
+import { HomeauxiliarComponent } from './homeauxiliar/homeauxiliar.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,6 +30,8 @@ const appRoutes: Routes = [
     path: 'productos', component: ProductosComponent
   },
   { path : 'empleados', component: EmpleadoComponent },
+  { path : 'usuario', component: UsuarioComponent },
+  { path : 'homeauxiliar', component: HomeauxiliarComponent },
 
 ];
 
@@ -36,7 +39,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent, ProductoComponent,
     ProductosComponent, EmpleadoComponent,
-    ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent, HomealuxiliarComponent],
+    ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent, HomeauxiliarComponent,
+    UsuarioComponent],
   imports: [
     BrowserModule, MatSelectModule,
      FormsModule, HttpClientModule,
