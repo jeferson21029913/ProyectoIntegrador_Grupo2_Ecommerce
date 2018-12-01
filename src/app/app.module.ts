@@ -31,6 +31,7 @@ const appRoutes: Routes = [
   },
   { path : 'empleados', component: EmpleadoComponent },
   { path : 'usuario', component: UsuarioComponent },
+  { path : 'homealuxiliar', component: HomealuxiliarComponent },
   { path : 'homeauxiliar', component: HomeauxiliarComponent },
 
 ];
@@ -39,7 +40,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent, ProductoComponent,
     ProductosComponent, EmpleadoComponent,
-    ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent, HomeauxiliarComponent,
+    ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent, HomeauxiliarComponent,HomealuxiliarComponent,
     UsuarioComponent],
   imports: [
     BrowserModule, MatSelectModule,
