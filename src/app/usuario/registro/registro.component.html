@@ -1,3 +1,74 @@
-<p>
-  registro works!
-</p>
+<form #form="ngForm" autocomplete="off" class="col s12 white">
+    <input name="codUsu" type="hidden" #codUsu="ngModel" [(ngModel)]="usuario.codUsu">
+    <input name="fechaRegistroUsu" type="hidden" #fechaRegistroUsu="ngModel" [(ngModel)]="usuario.fechaRegistroUsu">
+    <div class="row">
+        <div class="input-field col s12">
+            <input name="nomUsu" class="validate" type="text" required #nomUsu="ngModel" 
+            [(ngModel)]="usuario.nomUsu" maxlength="25">
+            <label data-error="Required field!">Nombre</label>
+            <div class="validation-error" *ngIf="nomUsu.invalid && nomUsu.touched">Este campo es obligatorio.</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+            <input name="apePatUsu" class="validate" type="text" required #apePatUsu="ngModel" 
+            [(ngModel)]="usuario.apePatUsu" maxlength="25">
+            <label data-error="Required field!">Apellido Paterno</label>
+            <div class="validation-error" *ngIf="apePatUsu.invalid && apePatUsu.touched">Este campo es obligatorio.</div>
+        </div>
+        <div class="input-field col s6">
+            <input name="apeMatUsu" class="validate" type="text" required #apeMatUsu="ngModel" 
+            [(ngModel)]="usuario.apeMatUsu" maxlength="25">
+            <label data-error="Required field!">Apellido Materno</label>
+            <div class="validation-error" *ngIf="apeMatUsu.invalid && apeMatUsu.touched">Este campo es obligatorio.</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+            <input name="dniUsu" class="validate" type="text" required #dniUsu="ngModel" 
+            [(ngModel)]="usuario.dniUsu" pattern="^[\d]{8}$">
+            <label data-error="Required field!">DNI</label>
+            <div class="validation-error" *ngIf="dniUsu.errors?.required && dniUsu.touched">Este campo es obligatorio.</div>
+            <div class="validation-error" *ngIf="!dniUsu.errors?.required && dniUsu.errors?.pattern && dniUsu.touched">
+            Ingrese un DNI válido.</div>
+        </div>
+        <div class="input-field col s6">
+            <input name="celUsu" class="validate" type="text" required #celUsu="ngModel" 
+            [(ngModel)]="usuario.celUsu" pattern="^9[\d]{8}$">
+            <label data-error="Required field!">Número de celular</label>
+            <div class="validation-error" *ngIf="celUsu.errors?.required && celUsu.touched">Este campo es obligatorio.</div>
+            <div class="validation-error" *ngIf="!celUsu.errors?.required && celUsu.errors?.pattern && celUsu.touched">
+            Ingrese un número válido.</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+            <input name="nickUsu" class="validate" type="text" required #nickUsu="ngModel" 
+            [(ngModel)]="usuario.nickUsu" maxlength="25">
+            <label data-error="Required field!"> Nombre de Usuario</label>
+            <div class="validation-error" *ngIf="nickUsu.invalid && nickUsu.touched">Este campo es obligatorio.</div>
+        </div>
+        <div class="input-field col s6">
+            <input name="pwdUsu" class="validate" type="password" required #pwdUsu="ngModel" 
+            [(ngModel)]="usuario.pwdUsu" maxlength="25">
+            <label data-error="Required field!">Contraseña</label>
+            <div class="validation-error" *ngIf="pwdUsu.invalid && pwdUsu.touched">Este campo es obligatorio.</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input name="mailUsu" class="validate" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text"
+                required #mailUsu="ngModel" [(ngModel)]="usuario.mailUsu" maxlength="50">
+            <label data-error="Required field!">Correo electrónico</label>
+             <div class="validation-error" *ngIf="mailUsu.errors?.required && mailUsu.touched">Este campo es obligatorio.</div>
+            <div class="validation-error" *ngIf="!mailUsu.errors?.required && mailUsu.errors?.pattern && mailUsu.touched">
+            Ingrese un correo electrónico válido.</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <button type="submit" (click)="onRegistrarse(form)" [disabled]="!form.valid" class="btn-large btn-submit">
+                Registrarse</button>
+        </div>
+    </div>
+</form>

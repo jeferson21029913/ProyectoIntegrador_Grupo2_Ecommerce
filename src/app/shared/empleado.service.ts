@@ -13,7 +13,7 @@ export class EmpleadoService {
 
   constructor(private http : HttpClient) { }
 
-  postEmpleado(formData : Empleado){
+ /* postEmpleado(formData : Empleado){
     return this.http.post(this.rootURL+'Usuario/crearUsuario',formData)
   }
 
@@ -27,6 +27,6 @@ export class EmpleadoService {
 
   deleteEmpleado(formData : Empleado){
     return this.http.post(this.rootURL+'Usuario/eliminarUsuario',formData);
-  }
+  }*/
 
 }

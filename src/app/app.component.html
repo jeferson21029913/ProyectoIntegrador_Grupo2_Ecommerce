@@ -1,30 +1,56 @@
-<! -- Navbar -->
-<nav class="navbar navbar-fixed-top navbar-light bg-faded">
-  <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#navbar-collapse">&#9776;</button>
-  <a class="navbar-brand" href="#">Ecommerce</a>
-  <div class="collapse navbar-toggleable-sm" id="navbar-collapse">
-    <ul class="nav navbar-nav pull-xs-right">
-            <li class="nav-item active">
-              <a  [routerLink]="['/productos']" class="nav-link"  >Productos</a>
-            </li> 
-            <li class="nav-item ">
-              <a  [routerLink]="['/empleados']" class="nav-link"  >Empleados</a>
-            </li> 
-            <li class="nav-item ">
-              <a  [routerLink]="['/homealuxiliar']" class="nav-link"  >Usuarios</a>
-            </li> 
-            <li class="nav-item ">
-                <a  [routerLink]="['/homeauxiliar']" class="nav-link"  >Agregar</a>
+<form #form="ngForm" class="col s12 white" autocomplete="off">
+<nav>
+        <ul class="nav navbar-nav pull-xs-right">
+                <li class="nav-item">
+                        <a  [routerLink]="['/home']" class="nav-link" >Home</a>
+                      </li>  
+                <li class="nav-item">
+                        <a  [routerLink]="['/carrito']" class="nav-link" >Carro de compras</a>
+                  </li> 
+            <li class="nav-item">
+                <a  [routerLink]="['/login']" class="nav-link" >Usuario</a>
               </li> 
-    </ul>
-  </div>
-</nav>
-<! -- End Navbar -->
-<div class="container">
+              <li class="nav-item ">
+                <a  (click)="onSalir()" class="nav-link"  >Salir</a>
+              </li> 
+              <li class="nav-item ">
+                <a  [routerLink]="['/productos']" class="nav-link" >Productos</a>
+              </li> 
+              <li class="nav-item ">
+                  <a  [routerLink]="['/usuarios']" class="nav-link"  >Usuarios</a>
+            </li> 
+            <p class="nav-item ">
+              <span style="float: right; margin-right: 1%;">{{usuario.nomUsu}} {{usuario.apePatUsu}} {{usuario.apeMatUsu}}
+                </span>
+            </p> 
+      </ul>
 
-        <div class="container mainContainer">
-                <router-outlet></router-outlet>
-            </div>
-    <!-- <app-productos></app-productos> -->
-    <!--<app-empleados></app-empleados>-->
+  </nav>
+
+  <div class="container">
+
+    <div class="container mainContainer">
+            <router-outlet></router-outlet>
+        </div>
 </div>
+</form>
+<!--<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+    <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#navbar-collapse">&#9776;</button>
+    <a class="navbar-brand" href="#">Ecommerce</a>
+    <div class="collapse navbar-toggleable-sm" id="navbar-collapse">
+      <ul class="nav navbar-nav pull-xs-right">
+              <li class="nav-item active">
+                <a  [routerLink]="['/productos']" class="nav-link"  >Productos</a>
+              </li> 
+              <li class="nav-item ">
+                <a  [routerLink]="['/empleados']" class="nav-link"  >Empleados</a>
+              </li> 
+              <li class="nav-item ">
+                <a  [routerLink]="['/homealuxiliar']" class="nav-link"  >Usuarios</a>
+              </li> 
+              <li class="nav-item ">
+                  <a  [routerLink]="['/homeauxiliar']" class="nav-link"  >Agregar</a>
+                </li> 
+      </ul>
+    </div>
+  </nav>-->

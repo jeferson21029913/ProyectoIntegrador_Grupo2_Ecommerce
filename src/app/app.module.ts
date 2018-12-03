@@ -26,14 +26,18 @@ import { HomeauxiliarComponent } from './homeauxiliar/homeauxiliar.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  {
-    path: 'productos', component: ProductosComponent
-  },
+  { path: 'home', component: HomeComponent },
+  { path: 'usuario', component: UsuarioComponent },
+  {path: 'productos', component: ProductosComponent },
   { path : 'empleados', component: EmpleadoComponent },
-  { path : 'usuario', component: UsuarioComponent },
+  //{ path : 'usuario', component: UsuarioComponent },
+  { path : 'registro', component: UsuarioComponent,
+  children:[{path:'',component:RegistroComponent }]},
+  { path : 'login', component: UsuarioComponent,
+  children:[{path:'',component:LoginComponent }]},
   { path : 'homealuxiliar', component: HomealuxiliarComponent },
   { path : 'homeauxiliar', component: HomeauxiliarComponent },
-
+  //{ path : 'usuario', redirectTo:'/login', pathMatch : 'full'}
 ];
 
 @NgModule({
@@ -47,7 +51,7 @@ const appRoutes: Routes = [
      FormsModule, HttpClientModule,
       BrowserAnimationsModule, ToastrModule.forRoot(),
     MatFormFieldModule, MatSelectModule,
-    RouterModule.forRoot(appRoutes,   { useHash:true  }),
+    RouterModule.forRoot(appRoutes,{ useHash:true  }),
   ],
   providers: [[MarcaService], [CategoriaService], [ProductoService], [UsuarioService]],
   bootstrap: [AppComponent]

@@ -13,20 +13,17 @@ export class EmpleadoListComponent implements OnInit {
   constructor(private service : EmpleadoService,private toastr:ToastrService) { }
 
   ngOnInit() {
-    this.service.refreshList();
-  }
-
-  populateForm(emp : Empleado){
-    this.service.formData = Object.assign({},emp);
+    //.service.formData = Object.assign({},emp);
+    
   }
 
   onDelete(emp : Empleado){
-    if(confirm('¿Está seguro de que desea eliminar este producto?')){
+    /*if(confirm('¿Está seguro de que desea eliminar este producto?')){
       this.service.deleteEmpleado(emp).subscribe(res=>{
         this.service.refreshList();
         this.toastr.success('El producto se eliminó correctamente.','ECOMMERCE');
       });
-    }
+    }*/
   }
 
 }

@@ -43,23 +43,23 @@ export class EmpleadoComponent implements OnInit {
   }
 
   insertRecord(form : NgForm){
-    if(confirm('¿Esta seguro que desea registrar este usuario?')){
+    /*if(confirm('¿Esta seguro que desea registrar este usuario?')){
       this.service.postEmpleado(form.value).subscribe(res => {
         this.toastr.success('Inserto correctamente','ECOMMERCE')
         this.resetForm(form);
         this.service.refreshList();
       })
-    }
+    }*/
   }
 
   updateRecord(form : NgForm){
-    if(confirm('¿Esta seguro que desea actualizar este usuario?')){
+    /*if(confirm('¿Esta seguro que desea actualizar este usuario?')){
       this.service.putEmpleado(form.value).subscribe(res => {
         this.toastr.success('Actualizo correctamente','ECOMMERCE')
         this.resetForm(form);
         this.service.refreshList();
       })
-    }
+    }*/
   }
 
 }
