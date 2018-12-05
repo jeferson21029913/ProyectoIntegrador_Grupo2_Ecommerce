@@ -17,7 +17,15 @@ export class EmpleadoListComponent implements OnInit {
   ngOnInit() {
     //.service.formData = Object.assign({},emp);
     this.service.refreshList();
+   // this.imprimir();
   }
+
+ /* imprimir(){
+    this.service.refreshList();
+    //console.log(this.service.list);
+    if(this.service.list!=null) console.log(this.service.list.length);
+    //console.log(this.service.list.slice(1,this.service.list.length-1));
+  }*/
 
   onDelete(usuario:Usuario) {
     console.log(usuario);

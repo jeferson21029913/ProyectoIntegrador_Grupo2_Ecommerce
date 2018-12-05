@@ -26,6 +26,8 @@ import { PedidoComponent } from './pedido/pedido.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'pedidos', component: PedidoComponent },
+  { path: 'carrito', component: PedidoComponent },
   { path: 'usuario', component: UsuarioComponent },
   {path: 'productos', component: ProductosComponent },
   {path: 'usuarios', component: EmpleadoListComponent },
@@ -41,8 +43,7 @@ const appRoutes: Routes = [
     AppComponent, ProductoComponent,
     ProductosComponent, EmpleadoListComponent,
     ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent,
-    UsuarioComponent,
-    PedidoComponent],
+    UsuarioComponent, PedidoComponent],
   imports: [
     BrowserModule, MatSelectModule,
      FormsModule, HttpClientModule,

@@ -1,29 +1,28 @@
-<table style="margin-left: -30%" class="highlight" >
+<table style="margin-left: -10%" class="highlight" >
   <tr style="cursor: text;background-color: darkgray;" >
-      <td style="text-align:center;">Codigo</td> 
-      <td style="text-align:center;">Nombre</td>
-      <td style="text-align:center;">Apellido Paterno</td>
-      <td style="text-align:center;">Apellido Materno</td>
+     <!-- <td style="text-align:center;">Código</td>--> 
+      <td style="text-align:center;">Nombre completo</td>
+    <!--  <td style="text-align:center;">Apellido Paterno</td>
+      <td style="text-align:center;">Apellido Materno</td>-->
       <td style="text-align:center;">DNI</td>
       <td style="text-align:center;">Celular</td>
       <td style="text-align:center;">NickName</td>  
-      <td style="text-align:center;">Password</td>    
+     <!-- <td style="text-align:center;">Password</td>-->    
       <td style="text-align:center;">Fecha de Registro</td>
       <td style="text-align:center;">Email</td>  
       <td style="text-align:center;">Eliminar</td>
   </tr>
-    
   <tr style="cursor: text;" *ngFor="let usuario of service.list">
-    <td style="text-align:center;">{{usuario.codUsu}}</td>
-    <td style="text-align:center;">{{usuario.nomUsu}}</td>
-    <td style="text-align:center;">{{usuario.apePatUsu}}</td>
-    <td style="text-align:center;">{{usuario.apeMatUsu}}</td>
-    <td style="text-align:center;">{{usuario.dniUsu}}</td>
-    <td style="text-align:center;">{{usuario.celUsu}}</td>
-    <td style="text-align:center;">{{usuario.nickUsu}}</td>
-    <td style="text-align:center;">{{usuario.pwdUsu}}</td>
-    <td style="text-align:center;">{{usuario.fechaRegistroUsu}}</td>
-    <td style="text-align:center;">{{usuario.mailUsu}}</td>
-    <td style="text-align:center;"><button (click)="onDelete(usuario)" class="btn btn-sm btn-outline-danger">X</button></td>
+   <!-- <td style="text-align:center;" *ngIf="usuario.codUsu!=1">{{usuario.codUsu}}</td>-->
+    <td style="text-align:center;" *ngIf="usuario.codUsu!=1">{{usuario.nomUsu}} {{usuario.apePatUsu}} {{usuario.apeMatUsu}}</td>
+    <!--<td style="text-align:center;" *ngIf="usuario.codUsu!=1">{{usuario.apePatUsu}}</td>
+    <td style="text-align:center;" *ngIf="usuario.codUsu!=1">{{usuario.apeMatUsu}}</td>-->
+    <td style="text-align:center;" *ngIf="usuario.codUsu!=1">{{usuario.dniUsu}}</td>
+    <td style="text-align:center;" *ngIf="usuario.codUsu!=1">{{usuario.celUsu}}</td>
+    <td style="text-align:center;" *ngIf="usuario.codUsu!=1">{{usuario.nickUsu}}</td>
+   <!-- <td style="text-align:center;" *ngIf="usuario.codUsu!=1" >{{usuario.pwdUsu}}</td>-->
+    <td style="text-align:center;" *ngIf="usuario.codUsu!=1">{{usuario.fechaRegistroUsu.substring(0,10)}}</td>
+    <td style="text-align:center;" *ngIf="usuario.codUsu!=1">{{usuario.mailUsu}}</td>
+    <td style="text-align:center;" *ngIf="usuario.codUsu!=1"><button (click)="onDelete(usuario)" class="btn btn-sm btn-outline-danger">X</button></td>
   </tr>
 </table>

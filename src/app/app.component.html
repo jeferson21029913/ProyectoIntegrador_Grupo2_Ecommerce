@@ -26,10 +26,10 @@
                   <a  [routerLink]="['/usuarios']" class="nav-link">Usuarios</a>
             </li> 
             </div>
-            <p class="nav-item" *ngIf="us.formData.codUsu!=null">
-              <span style="float: right; margin-right: 1%;">{{us.formData.nomUsu}} {{us.formData.apePatUsu}} {{us.formData.apeMatUsu}}
+            <li class="nav-item" *ngIf="us.formData.codUsu!=null" style="float: right; margin-right: 1%;">
+              <span >{{us.formData.nomUsu}} {{us.formData.apePatUsu}} {{us.formData.apeMatUsu}}
                 </span>
-            </p> 
+              </li> 
       </ul>
 
   </nav>
