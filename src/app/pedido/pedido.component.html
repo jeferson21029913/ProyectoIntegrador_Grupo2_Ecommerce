@@ -1,0 +1,19 @@
+<table style="margin-left: -30%" class="highlight" >
+  <tr style="cursor: text;background-color: darkgray;" >
+      <td style="text-align:center;">Codigo de Boleta</td> 
+      <td style="text-align:center;">COdig de Usuario</td>
+      <td style="text-align:center;">Fecha de boleta</td>
+      <td style="text-align:center;">Número de Tarjeta</td>
+      <td style="text-align:center;">Precio Total</td>
+      <td style="text-align:center;">Codigo estado Boleta</td>
+  </tr>
+
+  <tr style="cursor: text;" *ngFor="let pedido of service.list">
+    <td style="text-align:center;">{{pedido.codBol}}</td>
+    <td style="text-align:center;">{{pedido.codUsu}}</td>
+    <td style="text-align:center;">{{pedido.fechaBol}}</td>
+    <td style="text-align:center;">{{pedido.numTarjeta}}</td>
+    <td style="text-align:center;">{{pedido.precioTotal}}</td>
+    <td style="text-align:center;">{{pedido.codEstBol}}</td>
+  </tr>
+</table>
