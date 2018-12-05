@@ -20,31 +20,26 @@ import { LoginComponent } from './usuario/login/login.component';
 import { RegistroComponent } from './usuario/registro/registro.component';
 import { HomeComponent } from './home/home.component';
 import { UsuarioService } from './shared/usuario.service';
-import { HomealuxiliarComponent } from './homealuxiliar/homealuxiliar.component';
-import {EmpleadoComponent } from './empleados/empleado/empleado.component';
-import { HomeauxiliarComponent } from './homeauxiliar/homeauxiliar.component';
+import { EmpleadoListComponent } from './empleados/empleado-list/empleado-list.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'usuario', component: UsuarioComponent },
   {path: 'productos', component: ProductosComponent },
-  { path : 'empleados', component: EmpleadoComponent },
-  //{ path : 'usuario', component: UsuarioComponent },
+  {path: 'usuarios', component: EmpleadoListComponent },
   { path : 'registro', component: UsuarioComponent,
   children:[{path:'',component:RegistroComponent }]},
   { path : 'login', component: UsuarioComponent,
   children:[{path:'',component:LoginComponent }]},
-  { path : 'homealuxiliar', component: HomealuxiliarComponent },
-  { path : 'homeauxiliar', component: HomeauxiliarComponent },
   //{ path : 'usuario', redirectTo:'/login', pathMatch : 'full'}
 ];
 
 @NgModule({
   declarations: [
     AppComponent, ProductoComponent,
-    ProductosComponent, EmpleadoComponent,
-    ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent, HomeauxiliarComponent,HomealuxiliarComponent,
+    ProductosComponent, EmpleadoListComponent,
+    ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent,
     UsuarioComponent],
   imports: [
     BrowserModule, MatSelectModule,

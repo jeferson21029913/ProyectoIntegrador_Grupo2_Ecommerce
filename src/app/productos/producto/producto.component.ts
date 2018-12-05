@@ -5,8 +5,7 @@ import { MarcaService } from 'src/app/shared/marca.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ViewChild } from '@angular/core';
-//import{Producto} from 'src/app/shared/producto.model';
-//import {FormControl, Validators} from '@angular/forms';
+
 
 
 @Component({
@@ -17,8 +16,7 @@ import { ViewChild } from '@angular/core';
 
 export class ProductoComponent implements OnInit {
   
-  @ViewChild('imagenProducto')
-  variableImagen: ElementRef;
+  @ViewChild('imagenProducto') variableImagen: ElementRef;
   fileToUpload: File = null;
   constructor(private cs:CategoriaService,private ms:MarcaService,private service: ProductoService, 
     private toastr: ToastrService) {
@@ -30,7 +28,7 @@ export class ProductoComponent implements OnInit {
    if(this.service.control==0){
     if (this.service.formData.codPro!=null)
     {
-      this.imgUrl="http://localhost:56527/api/Producto/obtenerImagen?codPro="+this.service.formData.codPro; 
+      this.imgUrl="http://localhost:56527/api/Producto/obtenerImagen?codPro="+this.service.formData.codPro+"&aux="+this.service.auxImagen; 
   }
     else
     {this.imgUrl= "/assets/img/default-image.png";}
@@ -112,7 +110,6 @@ export class ProductoComponent implements OnInit {
 
   updateRecord(form: NgForm) {
     if (confirm('¿Está seguro de que desea actualizar este producto?')) {
-      //console.log(form.value);
       this.service.putProducto(form.value).subscribe(res => {
         this.toastr.success('El producto se actualizó correctamente.', 'ECOMMERCE');
         this.resetForm(form);
@@ -130,7 +127,8 @@ export class ProductoComponent implements OnInit {
         this.service.refreshList();
       this.resetForm(form);
       this.imgUrl = "/assets/img/default-image.png";
-      window.location.reload();
+      this.service.auxImagen++;
+      console.log(this.service.auxImagen);
       }); 
     }    
   }

@@ -66,7 +66,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s12">
+            <div class="input-field col s7">
+                    <button class="btn-large btn-submit"  (click)="catalogo()" type="submit" >Volver al catálogo</button>
+                  </div>  
+        <div class="input-field col s5">
             <button type="submit" (click)="onRegistrarse(form)" [disabled]="!form.valid" class="btn-large btn-submit">
                 Registrarse</button>
         </div>

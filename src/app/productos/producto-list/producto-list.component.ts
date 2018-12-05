@@ -51,9 +51,10 @@ marca:Marca;
   }}
 
 getImagen(codPro:number){
-  this.imagenProducto= "http://localhost:56527/api/Producto/obtenerImagen?codPro="+codPro;
+  this.imagenProducto= "http://localhost:56527/api/Producto/obtenerImagen?codPro="+codPro+"&aux="+this.service.auxImagen;
     return this.imagenProducto;
 }
+
 
 getCategoria(codProdCat:number){
   if(this.cs.categorias==null) return "Cargando";

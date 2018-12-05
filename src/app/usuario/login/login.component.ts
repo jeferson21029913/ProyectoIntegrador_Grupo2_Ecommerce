@@ -4,6 +4,7 @@ import { UsuarioService } from 'src/app/shared/usuario.service';
 import { Usuario } from 'src/app/shared/usuario.model';
 import { NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   usuario:Usuario;
   u:Usuario;
 
-  constructor(private us:UsuarioService,private toastr: ToastrService) { }
+  constructor(private us:UsuarioService,private toastr: ToastrService,private _router: Router) { }
 
   ngOnInit() {
     this.resetForm();
@@ -35,9 +36,14 @@ export class LoginComponent implements OnInit {
         this.toastr.success('¡Ingreso exitoso!','ECOMMERCE');
         this.usuario.nickUsu='';
         this.usuario.pwdUsu='';
-        window.location.replace("http://localhost:4200/#/home");
+        console.log(this.us.formData);
+        this._router.navigate(['/home']);
       }
     }
+  }
+
+  catalogo(){
+    this._router.navigate(['/home']);
   }
 
   resetForm(form? : NgForm){

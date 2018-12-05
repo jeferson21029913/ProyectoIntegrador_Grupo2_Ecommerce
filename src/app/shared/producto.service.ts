@@ -12,14 +12,13 @@ export class ProductoService {
   list:Producto[];
   actualizacion:number=0;
   controlEliminacion:number=0;
-  //codProActualizado
+  auxImagen=0;
   readonly rootURL = "http://localhost:56527/api/"
 
   constructor(private http:HttpClient) { }
 
   postProducto(formData: Producto,fileToUpload:File){
     const fd:FormData=new FormData();
-    //fd.append("codPro",formData.codPro.toString());
     fd.append("descripcionPro",formData.descripcionPro);
     fd.append("detallePro",formData.detallePro);
     fd.append("precioPro",formData.precioPro.toString());
@@ -31,7 +30,6 @@ export class ProductoService {
   }
 
   putProductoConImagen(formData: Producto,fileToUpload:File){
-    //this.formData.controlActualizacion=formData.controlActualizacion;
     const fd:FormData=new FormData();
     fd.append("codPro",formData.codPro.toString());
     fd.append("descripcionPro",formData.descripcionPro);

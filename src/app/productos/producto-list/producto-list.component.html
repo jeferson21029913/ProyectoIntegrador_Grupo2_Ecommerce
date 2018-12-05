@@ -1,25 +1,27 @@
-<table class="table table-hover" style="text-align: center">
-  <tr style="cursor: text;background-color: darkgray">
-     <!-- <td>Código</td>-->
-      <td>Imagen</td> 
-      <td>Descripción</td>
-      <td>Detalle</td>
-      <td>Precio</td>
-      <td>Stock</td>
-      <td>Categoría</td>
-      <td>Marca</td>  
-      <td>ELIMINAR</td>   
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+-->
+<table class="highlight">
+  <tr style="cursor: text;background-color: darkgray;" >
+      <td style="text-align:center;">Imagen</td> 
+      <td style="text-align:center;">Descripción</td>
+      <td style="text-align:center;">Detalle</td>
+      <td style="text-align:center;">Precio</td>
+      <td style="text-align:center;">Stock</td>
+      <td style="text-align:center;">Categoría</td>
+      <td style="text-align:center;">Marca</td>  
+      <td style="text-align:center;">ELIMINAR</td>   
   </tr>
   <tr *ngFor="let producto of service.list">
-     <td (click)="populateForm(producto)" >
+     <td (click)="populateForm(producto)" style="text-align:center;">
       <img [src]="getImagen(producto.codPro)" 
        style="width:30px;height:30px;" /></td> 
-    <td (click)="populateForm(producto)">{{producto.descripcionPro}}</td>
-    <td (click)="populateForm(producto)">{{producto.detallePro}}</td>
-    <td (click)="populateForm(producto)">{{producto.precioPro}}</td>
-    <td (click)="populateForm(producto)">{{producto.stockPro}}</td>
-    <td (click)="populateForm(producto)">{{getCategoria(producto.codProdCat)}}</td>
-   <td (click)="populateForm(producto)">{{getMarca(producto.codProdMar)}}</td>
-    <td><button (click)="onDelete(producto)" class="btn btn-sm btn-outline-danger">X</button></td>
+    <td (click)="populateForm(producto)" style="text-align:center;">{{producto.descripcionPro}}</td>
+    <td (click)="populateForm(producto)" style="text-align:center;">{{producto.detallePro}}</td>
+    <td (click)="populateForm(producto)" style="text-align:center;">{{producto.precioPro}}</td>
+    <td (click)="populateForm(producto)" style="text-align:center;">{{producto.stockPro}}</td>
+    <td (click)="populateForm(producto)" style="text-align:center;">{{getCategoria(producto.codProdCat)}}</td>
+   <td (click)="populateForm(producto)" style="text-align:center;">{{getMarca(producto.codProdMar)}}</td>
+    <td style="text-align:center;"><button (click)="onDelete(producto)" class="btn btn-sm btn-outline-danger">X</button></td>
   </tr>
 </table>

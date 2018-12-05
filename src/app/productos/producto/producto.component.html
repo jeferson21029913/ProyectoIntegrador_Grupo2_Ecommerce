@@ -1,42 +1,53 @@
-<form #form="ngForm" autocomplete="off">
-  <div style="width:50%;float: left;">
+<form #form="ngForm" autocomplete="off" >
+  <div style="width:50%;float: left; padding: 1%;">
     <input name="controlImagen" type="hidden" #controlImagen [value]="controlar()">
     <input name="codPro" type="hidden" #codPro="ngModel" [(ngModel)]="service.formData.codPro">
     <input name="imgPro" type="hidden" #imgPro="ngModel" [(ngModel)]="service.formData.imgPro">
-    <div class="form-group">
-      <label>Descripción</label>
-      <input name="descripcionPro" #descripcionPro="ngModel" [(ngModel)]="service.formData.descripcionPro" class="form-control"
-        required>
-      <div class="validation-error" *ngIf="descripcionPro.invalid && descripcionPro.touched">Este campo es obligatorio.</div>
-    </div>
-    <div class="form-group">
-      <label>Detalle</label>
-      <input name="detallePro" #detallePro="ngModel" [(ngModel)]="service.formData.detallePro" class="form-control">
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label>Precio</label>
-        <input name="precioPro" #precioPro="ngModel" pattern="^[1-9]+[\d]*$|^[1-9]+[\d]*[\.]{1}[\d]{1}[0-9]?$|^0{1}[\.]{1}[\d]{1}[0-9]?$" [(ngModel)]="service.formData.precioPro" 
-        class="form-control" required><!--/[1-9]+[\d]*|[1-9]+[\d]*[\.]{1}[\d]{1}[0-9]?|0{1}[\.]{1}[\d]{1}[0-9]?/-->
-          <div class="validation-error" *ngIf="precioPro.errors?.required && precioPro.touched">Este campo es obligatorio.</div>
-          <div class="validation-error" *ngIf="(!precioPro.errors?.required && precioPro.errors?.pattern && 
-          precioPro.touched) || (!precioPro.errors?.required && precioPro.value==0 && precioPro.touched) ">
-            Ingrese un número positivo que posea a lo más dos decimales.</div>
-      </div>
-      <div class="form-group  col-md-6">
-        <label>Stock</label>
-        <input name="stockPro" #stockPro="ngModel" pattern="[1-9]+[0-9]*" [(ngModel)]="service.formData.stockPro" 
-        class="form-control" required>
-        <div class="validation-error" *ngIf="stockPro.errors?.required && stockPro.touched">Este campo es obligatorio.</div>
-        <div class="validation-error" *ngIf="(!stockPro.errors?.required && stockPro.errors?.pattern && stockPro.touched) ||
-         (!stockPro.errors?.required && stockPro.value==0 && stockPro.touched)">
-          Ingrese un número entero positivo.</div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="descripcionPro" class="validate" type="text" required #descripcionPro="ngModel" 
+        [(ngModel)]="service.formData.descripcionPro"  maxlength="50" required placeholder="Descripción">
+       <!-- <label data-error="Required field!"> Descripción</label>-->
+        <div class="validation-error" *ngIf="descripcionPro.invalid && descripcionPro.touched">
+          Este campo es obligatorio.</div>
       </div>
     </div>
-    <br>
-    <div class="form-row">
 
-      <div class="form-group  col-md-6">
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="detallePro" class="validate" type="text" #detallePro="ngModel" [(ngModel)]="service.formData.detallePro"
+          maxlength="255" placeholder="Detalle">
+       <!-- <label data-error="Required field!">Detalle</label>-->
+        <div class="validation-error" *ngIf="detallePro.invalid && detallePro.touched">
+          Este campo es obligatorio.</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <input name="precioPro" class="validate" type="text" required #precioPro="ngModel" [(ngModel)]="service.formData.precioPro"
+          pattern="^[1-9]{1}[\d]{0,7}$|^[1-9]{1}[\d]{0,7}[\.]{1}[\d]{1}[0-9]?$|^0{1}[\.]{1}[\d]{1}[0-9]?$"
+          placeholder="Precio">
+        <!--<label data-error="Required field!">Precio</label>-->
+        <div class="validation-error" *ngIf="precioPro.errors?.required && precioPro.touched">Este campo es
+          obligatorio.</div>
+        <div class="validation-error" *ngIf="(!precioPro.errors?.required && precioPro.errors?.pattern && 
+                  precioPro.touched) || (!precioPro.errors?.required && precioPro.value==0 && precioPro.touched) ">
+          Ingrese un número positivo que posea a lo más ocho dígitos en la parte entera y dos dígitos en la parte decimal.</div>
+      </div>
+      <div class="input-field col s6">
+        <input name="stockPro" class="validate" type="text" required #stockPro="ngModel" [(ngModel)]="service.formData.stockPro"
+          pattern="[1-9]{1}[0-9]{0,8}" placeholder="Stock">
+       <!-- <label data-error="Required field!">Stock</label>-->
+        <div class="validation-error" *ngIf="stockPro.errors?.required && stockPro.touched">Este campo es
+          obligatorio.</div>
+        <div class="validation-error" *ngIf="(!stockPro.errors?.required && stockPro.errors?.pattern && 
+            stockPro.touched) || (!stockPro.errors?.required && stockPro.value==0 && stockPro.touched) ">
+          Ingrese un número entero positivo que posea a lo más 9 dígitos.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
         <mat-select placeholder="Seleccione una categoría" [(ngModel)]="service.formData.codProdCat" name="codProdCat"
           #codProdCat="ngModel">
           <mat-option *ngFor="let categoria of cs.categorias" [value]="categoria.codProdCat">
@@ -44,7 +55,7 @@
           </mat-option>
         </mat-select>
       </div>
-      <div class="form-group col-md-6">
+      <div class="input-field col s6">
         <mat-select placeholder="Seleccione una marca" [(ngModel)]="service.formData.codProdMar" name="codProdMar"
           #codProdMar="ngModel">
           <mat-option *ngFor="let marca of ms.marcas" [value]="marca.codProdMar">
@@ -53,25 +64,23 @@
         </mat-select>
       </div>
     </div>
-    <br><br>
-    <div class="form-row">
-      <div class="form-group  col-md-6">
-        <button type="submit" (click)="onRegistrar(form)" class="btn btn-lg btn-block" 
-        [disabled]="form.invalid || codProdCat.value==null||codProdMar.value==null || imagenProducto.value==''">
-        REGISTRAR</button>
+    <div class="row">
+      <div class="input-field col s6">
+        <button type="submit" (click)="onRegistrar(form)" class="btn-large btn-submit" [disabled]="form.invalid || codProdCat.value==null||codProdMar.value==null || imagenProducto.value==''">
+          REGISTRAR</button>
       </div>
-      <div class="form-group col-md-6">
-        <button type="submit" (click)="onActualizar(form)" class="btn btn-lg btn-block" 
-        [disabled]="form.invalid || codProdCat.value==null || codProdMar.value==null">
-        ACTUALIZAR</button>
+      <div class="input-field col s6">
+        <button type="submit" (click)="onActualizar(form)" class="btn-large btn-submit" [disabled]="form.invalid || codProdCat.value==null || codProdMar.value==null">
+          ACTUALIZAR</button>
       </div>
     </div>
   </div>
-  <div style="width:50%;float: left;">
-    <div class="form-group" style="text-align: center;">
-    <img [src]="getImg()" style="width:350px;height:350px;">
-      <br> <br>
-      <input name="imagenProducto" #imagenProducto type="file" accept="image/*" (change)="handleFileInput($event.target.files)">
+  <div style="width:50%;float: left;text-align: center;padding: 1%;">
+    <div class="row">
+      <div class="input-field col s12">
+        <img [src]="getImg()" style="width:350px;height:350px;">
+      </div>
     </div>
+        <input name="imagenProducto" #imagenProducto type="file" accept="image/*" (change)="handleFileInput($event.target.files)">
   </div>
 </form>

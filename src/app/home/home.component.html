@@ -1,18 +1,19 @@
-<div  *ngFor="let producto of service.list">
+<div *ngFor="let producto of service.list" >
 
-  <div style="float:left;width: 30%;height:400px;border: 3px solid black;border-radius: 35px;
-  margin:1%;text-align: center;">
+  <div style="float:left;width: 48%;height:400px;border: 3px solid black;border-radius: 35px;
+  margin:1%;text-align: center; padding: 2%;" *ngIf="producto.stockPro>0">
 
-    <div style="width:100%;height:100%;">
-      <p></p>
+    <div style="width:100%;height:85%;">
       <img [src]="getImagen(producto.codPro)" style="width:80%;height:60%;" />
-      <div>
+      <div style="width:100%;">
         <p>NOMBRE : {{producto.descripcionPro}}</p>
         <p>PRECIO : {{producto.precioPro}}</p>
-        <div style="text-align: center">
-        <button type="submit" class="btn btn-lg " style="color: black" style="color: black; width: 75%; text-align: center">Agregar al Carrito</button>
+        <p>STOCK : {{producto.stockPro}}</p>
       </div>
-      </div>     
-    </div> 
+      <div style="text-align: center">
+        <button type="submit" class="btn btn-lg " style="color: black" style="color: black; width: 75%; text-align: center">Agregar
+          al Carrito</button>
+      </div>
+    </div>
   </div>
 </div>
