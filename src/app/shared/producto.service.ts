@@ -53,7 +53,7 @@ export class ProductoService {
     console.log(formData);
     return this.http.post(this.rootURL+'Producto/actualizarProducto',formData);
   }
-
+  
   deleteProducto(formData: Producto){
     return this.http.post(this.rootURL+'Producto/eliminarProducto',formData);
   }

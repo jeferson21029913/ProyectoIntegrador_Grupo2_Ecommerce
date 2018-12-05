@@ -19,6 +19,7 @@ export class RegistroComponent implements OnInit {
   constructor(private us:UsuarioService,private toastr: ToastrService,private _router: Router) { }
 
   ngOnInit() {
+    this.us.refreshList();
     this.resetForm();
     this.usuario=this.us.formData;
   }
@@ -40,8 +41,15 @@ export class RegistroComponent implements OnInit {
     }
   }
 
+  u:Usuario;
   onRegistrarse(form : NgForm){
-    this.insertRecord(form)
+    this.u=this.us.list.find(x=>x.nickUsu==this.usuario.nickUsu);
+    console.log(this.u);
+    if(this.u==null)
+    {this.insertRecord(form);}
+    else{
+      this.toastr.warning('¡Nombre de usuario no disponible!','ECOMMERCE');
+    }
   }
 
   insertRecord(form : NgForm){

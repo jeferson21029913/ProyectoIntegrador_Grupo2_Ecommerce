@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
         this.usuario.nickUsu='';
         this.usuario.pwdUsu='';
         console.log(this.us.formData);
+       // if(this.us.formData.codUsu==1) this.us.controlMantenimiento=1;
         this._router.navigate(['/home']);
       }
     }

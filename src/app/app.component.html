@@ -1,3 +1,5 @@
+<!--<input name="controlMantenimiento" type="hidden" #controlMantenimiento [value]="controlarMantenimiento()">
+-->
 <form #form="ngForm" class="col s12 white" autocomplete="off">
 <nav>
         <ul class="nav navbar-nav pull-xs-right">
@@ -7,13 +9,16 @@
                 <li class="nav-item">
                         <a  [routerLink]="['/carrito']" class="nav-link" >Carrito de compras</a>
                   </li> 
+                  <li class="nav-item" >
+                      <a  [routerLink]="['/pedidos']" class="nav-link">Pedidos</a>
+                </li> 
             <li class="nav-item">
-                <a  [routerLink]="['/login']" class="nav-link" >Ingresar</a>
+                <a   (click)="onLogin()" class="nav-link" >Ingresar</a>
               </li> 
               <li class="nav-item">
                 <a  (click)="onSalir()" class="nav-link">Salir</a>
               </li> 
-              <div name="mantenimiento" #mantenimiento style="visibility: visible;">
+                 <div *ngIf="us.formData.codUsu==1">
               <li class="nav-item"  >
                 <a  [routerLink]="['/productos']" class="nav-link">Productos</a>
               </li> 
@@ -21,7 +26,7 @@
                   <a  [routerLink]="['/usuarios']" class="nav-link">Usuarios</a>
             </li> 
             </div>
-            <p class="nav-item ">
+            <p class="nav-item" *ngIf="us.formData.codUsu!=null">
               <span style="float: right; margin-right: 1%;">{{us.formData.nomUsu}} {{us.formData.apePatUsu}} {{us.formData.apeMatUsu}}
                 </span>
             </p> 
