@@ -1,32 +1,29 @@
-<table class="table table-hover">
-
-  <tr>
-    <td>Codigo</td>
-    <td>Nombre</td>
-    <td>A. Paterno</td>
-    <td>A. Materno</td>
-    <td>DNI</td>
-    <td>Celular</td>
-    <td>Nickname</td>
-    <td>Contraseña</td>
-    <td>Fecha Registro</td>
-    <td>Tipo de Usuario</td>
-    <td>Email</td>
+<table style="margin-left: -30%" class="highlight" >
+  <tr style="cursor: text;background-color: darkgray;" >
+      <td style="text-align:center;">Codigo</td> 
+      <td style="text-align:center;">Nombre</td>
+      <td style="text-align:center;">Apellido Paterno</td>
+      <td style="text-align:center;">Apellido Materno</td>
+      <td style="text-align:center;">DNI</td>
+      <td style="text-align:center;">Celular</td>
+      <td style="text-align:center;">NickName</td>  
+      <td style="text-align:center;">Password</td>    
+      <td style="text-align:center;">Fecha de Registro</td>
+      <td style="text-align:center;">Email</td>  
+      <td style="text-align:center;">Eliminar</td>
   </tr>
-
-  <tr *ngFor="let empleado of service.list">
-    <td (click)="populateForm(empleado)">{{empleado.codUsu}}</td>
-    <td (click)="populateForm(empleado)">{{empleado.nomUsu}}</td>
-    <td (click)="populateForm(empleado)">{{empleado.apePatUsu}}</td>
-    <td (click)="populateForm(empleado)">{{empleado.apeMatUsu}}</td>
-    <td (click)="populateForm(empleado)">{{empleado.dniUsu}}</td>
-    <td (click)="populateForm(empleado)">{{empleado.celUsu}}</td>
-    <td (click)="populateForm(empleado)">{{empleado.nickUsu}}</td>
-    <td (click)="populateForm(empleado)">{{empleado.pwdUsu}}</td>
-    <td (click)="populateForm(empleado)">{{empleado.fechaRegistroUsu}}</td>
-    <td (click)="populateForm(empleado)">{{empleado.codTipoUsu}}</td>
-    <td (click)="populateForm(empleado)">{{empleado.mailUsu}}</td>
-
-    <td><button (click)="onDelete(empleado)" class="btn btn-sm btn-outline-danger">X</button></td>
+    
+  <tr style="cursor: text;" *ngFor="let usuario of service.list">
+    <td style="text-align:center;">{{usuario.codUsu}}</td>
+    <td style="text-align:center;">{{usuario.nomUsu}}</td>
+    <td style="text-align:center;">{{usuario.apePatUsu}}</td>
+    <td style="text-align:center;">{{usuario.apeMatUsu}}</td>
+    <td style="text-align:center;">{{usuario.dniUsu}}</td>
+    <td style="text-align:center;">{{usuario.celUsu}}</td>
+    <td style="text-align:center;">{{usuario.nickUsu}}</td>
+    <td style="text-align:center;">{{usuario.pwdUsu}}</td>
+    <td style="text-align:center;">{{usuario.fechaRegistroUsu}}</td>
+    <td style="text-align:center;">{{usuario.mailUsu}}</td>
+    <td style="text-align:center;"><button (click)="onDelete(usuario)" class="btn btn-sm btn-outline-danger">X</button></td>
   </tr>
 </table>

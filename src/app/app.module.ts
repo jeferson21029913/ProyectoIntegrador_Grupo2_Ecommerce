@@ -21,6 +21,7 @@ import { RegistroComponent } from './usuario/registro/registro.component';
 import { HomeComponent } from './home/home.component';
 import { UsuarioService } from './shared/usuario.service';
 import { EmpleadoListComponent } from './empleados/empleado-list/empleado-list.component';
+import { PedidoComponent } from './pedido/pedido.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     AppComponent, ProductoComponent,
     ProductosComponent, EmpleadoListComponent,
     ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent,
-    UsuarioComponent],
+    UsuarioComponent,
+    PedidoComponent],
   imports: [
     BrowserModule, MatSelectModule,
      FormsModule, HttpClientModule,

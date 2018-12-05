@@ -10,7 +10,7 @@ export class UsuarioService {
 
   formData : Usuario;
   list : Usuario[];
-  //controlMantenimiento:number=0;
+  controlEliminacion:number=0;
   readonly rootURL = "http://localhost:56527/api/";
   constructor(private http : HttpClient) { }
 
@@ -22,6 +22,10 @@ export class UsuarioService {
 
   refreshList(){
     this.http.get(this.rootURL+'Usuario/ListarUsuarios').toPromise().then(res => this.list = res as Usuario[])
+  }
+
+  deleteUsuario(formData: Usuario){
+    return this.http.post(this.rootURL+'Usuario/eliminarUsuario',formData);
   }
 
 
