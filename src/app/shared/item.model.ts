@@ -1,11 +1,11 @@
 export class Item {
+    imgPro : string;
     numItem : number;
     codPro : number;
     descripcionPro : string;	
     detallePro : string;
     precioPro : number;	
-    imgPro : string;
-    canItem : number;
     categoria : string;
     marca : string;
+    canItem : number;
 }

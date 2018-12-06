@@ -1,5 +1,5 @@
 
-    <div style="float:left;width: 70%;height:360px;border: 3px solid black;
+    <div style="float:left;width: 70%;height:300px;border: 3px solid black;
     margin:1%;text-align: center;" >
   
       <div style="width:50%;height:100%;float: left;">
@@ -15,12 +15,15 @@
         <p align="left">STOCK : {{producto.stockPro}}</p>
         <p align="left">CATEGORIA : {{getCategoria(producto.codProdCat)}}</p>
         <p align="left">MARCA : {{getMarca(producto.codProdMar)}}</p>
-        <div align="left" >
-            <p align="left">CANTIDAD :</p> <input style="border: 1px solid black;border-radius: 10px ; width: 80px">
-        </div>
+        <p align="left">CANTIDAD :  <input style="text-align: center;border: 1px solid black;border-radius: 10px ; width: 80px" type="number" min="0" name="cantidad"></p> 
       </div> 
-      <div style="text-align: center">
-          <button type="submit" class="btn btn-lg " style="color: black" style="color: black; width: 30%; text-align: center">Agregar</button>
+      <div class="row">
+        <div class="input-field col s7">
+          <button class="btn-large btn-submit"  (click)="catalogo()" type="submit" >Volver al catálogo</button>
+        </div>  
+        <div class="input-field col s5">
+            <button [disabled]="!loginForm.valid" class="btn-large btn-submit" type="submit" (click)="OnSubmit()">Agregar</button>
+        </div>
       </div>
     </div>
   

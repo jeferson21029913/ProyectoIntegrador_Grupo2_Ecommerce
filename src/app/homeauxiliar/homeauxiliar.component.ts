@@ -7,6 +7,7 @@ import { MarcaService } from 'src/app/shared/marca.service';
 import { Categoria } from 'src/app/shared/categoria.model';
 import { Marca } from 'src/app/shared/marca.model';
 import { ItemService } from '../shared/item.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homeauxiliar',
@@ -15,7 +16,7 @@ import { ItemService } from '../shared/item.service';
 })
 export class HomeauxiliarComponent implements OnInit {
 
-  constructor(private service:ProductoService,private cs:CategoriaService,private ms:MarcaService,private toastr:ToastrService , private is : ItemService) { }
+  constructor(private service:ProductoService,private cs:CategoriaService,private ms:MarcaService,private toastr:ToastrService , private is : ItemService , private _router: Router) { }
 
   ngOnInit() {
     this.service.refreshList();
@@ -46,5 +47,17 @@ export class HomeauxiliarComponent implements OnInit {
     return this.marca.nomProdMar;}
   }
 
+  catalogo(){
+    this._router.navigate(['/home']);
+  }
+
+  OnSubmit(){
+
+    if(null){
+      
+    }else{
+      this._router.navigate(['/carrito']);
+    }
+  }
 
 }
