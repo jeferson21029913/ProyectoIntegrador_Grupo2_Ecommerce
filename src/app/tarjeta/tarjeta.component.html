@@ -1,0 +1,40 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label>
+    Numero de tarjeta:
+    <input type="text" formControlName="tarjeta" maxlength="16" type="text" pattern="\d*">
+  </label>
+
+  <label>
+    Titular:
+    <input type="text" formControlName="titular">
+  </label>
+
+  <label>
+    CodigoSeguridad:
+    <input type="text" formControlName="codigoSeguridad">
+  </label>
+
+  <label>
+    MesDeExpiracion:
+    <input type="text" formControlName="mes">
+  </label>
+
+  <label>
+    AñodeExpiracion:
+    <input type="text" formControlName="año">
+  </label>
+
+
+  <mat-select placeholder="Seleccione una marca" formControlName="tipo">
+    <mat-option [value]="1">
+      Visa
+    </mat-option>
+    <mat-option [value]="2">
+      Mastercard
+    </mat-option>
+  </mat-select>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+
+<!-- <button (click)="posted()">Ingresar datos</button> -->
+<p>{{errorMsj}}</p>
