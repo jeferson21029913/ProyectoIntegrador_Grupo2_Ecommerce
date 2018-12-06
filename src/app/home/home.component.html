@@ -7,11 +7,11 @@
       <img [src]="getImagen(producto.codPro)" style="width:80%;height:60%;" />
       <div style="width:100%;">
         <p>NOMBRE : {{producto.descripcionPro}}</p>
-        <p>PRECIO : {{producto.precioPro}}</p>
+        <p>PRECIO :   S/. {{producto.precioPro}}</p>
         <p>STOCK : {{producto.stockPro}}</p>
       </div>
       <div style="text-align: center">
-        <button type="submit" class="btn btn-lg " style="color: black" style="color: black; width: 75%; text-align: center">Agregar
+        <button  class="btn-large btn-submit" (click)="onAgregar(producto.codPro)" style="color: black" style="color: black; width: 75%; text-align: center">Agregar
           al Carrito</button>
       </div>
     </div>

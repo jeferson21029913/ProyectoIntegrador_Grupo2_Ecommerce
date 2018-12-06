@@ -4,20 +4,19 @@
   
       <div style="width:50%;height:100%;float: left;">
         <p></p>
-        <img [src]="getImagen(service.formData.codPro)" style="width:90%;height:80%;" />
+        <img [src]="getImagen(producto.codPro)" style="width:90%;height:80%;" />
       </div>
       <div>
         <p></p>
         <p></p>
-        <p align="left">NOMBRE : {{service.formData.descripcionPro}}</p>
+        <p align="left">NOMBRE : {{producto.descripcionPro}}</p>
         <p align="left">DETALLE : {{producto.detallePro}}</p>
-        <p align="left">PRECIO : {{service.formData.precioPro}}</p>
+        <p align="left">PRECIO : {{producto.precioPro}}</p>
         <p align="left">STOCK : {{producto.stockPro}}</p>
         <p align="left">CATEGORIA : {{getCategoria(producto.codProdCat)}}</p>
         <p align="left">MARCA : {{getMarca(producto.codProdMar)}}</p>
         <div align="left" >
-            <label>CANTIDAD : .</label>
-            <input style="border: 1px solid black;border-radius: 10px ; width: 80px">
+            <p align="left">CANTIDAD :</p> <input style="border: 1px solid black;border-radius: 10px ; width: 80px">
         </div>
       </div> 
       <div style="text-align: center">

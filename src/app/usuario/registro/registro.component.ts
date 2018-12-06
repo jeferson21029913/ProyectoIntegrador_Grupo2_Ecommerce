@@ -53,7 +53,7 @@ export class RegistroComponent implements OnInit {
   }
 
   insertRecord(form : NgForm){
-    if(confirm('¿Esta seguro que desea registrar este usuario?')){
+    if(confirm('¿Está seguro de que desea registrarse?')){
       this.us.postUsuario(form.value).subscribe(res => {
         this.toastr.success('¡Registro exitoso!','ECOMMERCE');
         this.resetForm(form);

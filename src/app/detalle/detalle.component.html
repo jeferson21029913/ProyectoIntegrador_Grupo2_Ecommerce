@@ -1,3 +1,23 @@
-<p>
-  detalle works!
-</p>
+<td style="text-align:center;"><button (click)="onVerPedido()" class="btn btn-sm btn-outline-danger">Regresar</button></td>
+<table style="margin-left: -10%" class="highlight" >
+  <tr style="cursor: text;background-color: darkgray;" >
+      <td style="text-align:center;">Imagen</td>
+      <td style="text-align:center;">Ítem</td>
+      <td style="text-align:center;">Boleta</td>
+      <td style="text-align:center;">Producto</td>
+      <td style="text-align:center;">Cantidad</td>
+      <td style="text-align:center;">Precio</td>
+      <td style="text-align:center;">SubTotal</td>
+  </tr>
+  <tr style="cursor: text;" *ngFor="let detalle of service.list">
+    <td style="text-align:center;" *ngIf="service.codigo==detalle.codBol">
+      <img [src]="getImagen(detalle.codProd)" style="width:30px;height:30px;" />
+    </td>
+    <td style="text-align:center;" *ngIf="service.codigo==detalle.codBol">{{detalle.codDetBol}}</td>
+    <td style="text-align:center;" *ngIf="service.codigo==detalle.codBol">{{detalle.codBol}}</td>
+    <td style="text-align:center;" *ngIf="service.codigo==detalle.codBol">{{getProducto(detalle.codProd)}}</td>
+    <td style="text-align:center;" *ngIf="service.codigo==detalle.codBol">{{detalle.canProd}}</td>
+    <td style="text-align:center;" *ngIf="service.codigo==detalle.codBol">S/. {{detalle.preProd}}</td>
+    <td style="text-align:center;" *ngIf="service.codigo==detalle.codBol">S/. {{detalle.canProd * detalle.preProd}}</td>
+  </tr>
+</table>

@@ -23,12 +23,19 @@ import { UsuarioService } from './shared/usuario.service';
 import { EmpleadoListComponent } from './empleados/empleado-list/empleado-list.component';
 import { PedidoComponent } from './pedido/pedido.component';
 import { DetalleComponent } from './detalle/detalle.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import { HomeauxiliarComponent } from './homeauxiliar/homeauxiliar.component';
+import { ItemService } from './shared/item.service';
+import { DetalleService } from './shared/detalle.service';
+import { PedidoService } from './shared/pedido.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'pedidos', component: PedidoComponent },
-  { path: 'carrito', component: DetalleComponent },
+  { path: 'carrito', component: CarritoComponent },
+  { path: 'detalle', component: DetalleComponent },
+  { path: 'agregar', component: HomeauxiliarComponent },
   { path: 'usuario', component: UsuarioComponent },
   {path: 'productos', component: ProductosComponent },
   {path: 'usuarios', component: EmpleadoListComponent },
@@ -44,7 +51,7 @@ const appRoutes: Routes = [
     AppComponent, ProductoComponent,
     ProductosComponent, EmpleadoListComponent,
     ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent,
-    UsuarioComponent, PedidoComponent, DetalleComponent],
+    UsuarioComponent, PedidoComponent, DetalleComponent, CarritoComponent, HomeauxiliarComponent],
   imports: [
     BrowserModule, MatSelectModule,
      FormsModule, HttpClientModule,
@@ -52,7 +59,7 @@ const appRoutes: Routes = [
     MatFormFieldModule, MatSelectModule,
     RouterModule.forRoot(appRoutes,{ useHash:true  }),
   ],
-  providers: [[MarcaService], [CategoriaService], [ProductoService], [UsuarioService]],
+  providers: [[MarcaService], [CategoriaService], [ProductoService], [UsuarioService] , [ItemService],[DetalleService],[PedidoService]], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

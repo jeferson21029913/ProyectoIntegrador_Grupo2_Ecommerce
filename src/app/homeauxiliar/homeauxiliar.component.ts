@@ -6,6 +6,7 @@ import { CategoriaService } from 'src/app/shared/categoria.service';
 import { MarcaService } from 'src/app/shared/marca.service';
 import { Categoria } from 'src/app/shared/categoria.model';
 import { Marca } from 'src/app/shared/marca.model';
+import { ItemService } from '../shared/item.service';
 
 @Component({
   selector: 'app-homeauxiliar',
@@ -14,12 +15,13 @@ import { Marca } from 'src/app/shared/marca.model';
 })
 export class HomeauxiliarComponent implements OnInit {
 
-  constructor(private service:ProductoService,private cs:CategoriaService,private ms:MarcaService,private toastr:ToastrService) { }
+  constructor(private service:ProductoService,private cs:CategoriaService,private ms:MarcaService,private toastr:ToastrService , private is : ItemService) { }
 
   ngOnInit() {
     this.service.refreshList();
-    this.producto=this.service.list.find(x=>x.codPro==2);
-    this.service.formData=this.producto;
+    this.producto=this.service.list.find(x=>x.codPro==this.is.codigoProducto);
+    this.cs.listarCategoria();
+    this.ms.listarMarca();
   }
 
   producto:Producto;
@@ -28,7 +30,7 @@ export class HomeauxiliarComponent implements OnInit {
   marca:Marca;
 
   getImagen(codPro:number){
-    this.imagenProducto= "http://localhost:56527/api/Producto/obtenerImagen?codPro="+codPro;
+    this.imagenProducto= "http://localhost:56527/api/Producto/obtenerImagen?codPro="+codPro+"&aux="+this.service.auxImagen;
       return this.imagenProducto;
   }
 

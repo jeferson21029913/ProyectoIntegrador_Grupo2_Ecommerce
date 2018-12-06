@@ -1,19 +1,22 @@
 <table style="margin-left: -30%" class="highlight" >
   <tr style="cursor: text;background-color: darkgray;" >
-      <td style="text-align:center;">Número de pedido</td> 
+      <td style="text-align:center;">Número</td> 
       <td style="text-align:center;">Usuario</td>
       <td style="text-align:center;">Fecha</td>
       <!--<td style="text-align:center;">Número de tarjeta</td>-->
       <td style="text-align:center;">Monto total</td>
       <td style="text-align:center;">Estado</td>
+      <td style="text-align:center;">Detalle</td>
   </tr>
 
- <!-- <tr style="cursor: text;" *ngFor="let pedido of service.list">
+  <tr style="cursor: text;" *ngFor="let pedido of service.list">
     <td style="text-align:center;">{{pedido.codBol}}</td>
-    <td style="text-align:center;">{{pedido.codUsu}}</td>
-    <td style="text-align:center;">{{pedido.fechaBol}}</td>
-    <td style="text-align:center;">{{pedido.numTarjeta}}</td>
-    <td style="text-align:center;">{{pedido.precioTotal}}</td>
-    <td style="text-align:center;">{{pedido.codEstBol}}</td>
-  </tr>-->
+    <td style="text-align:center;">{{getUsuario(pedido.codUsu)}}</td>
+    <td style="text-align:center;">{{pedido.fechaBol.substring(0,10)}}</td>
+    <!--<td style="text-align:center;">{{pedido.numTarjeta}}</td>-->
+    <td style="text-align:center;">S/. {{pedido.precioTotal}}</td>
+    <!--<td style="text-align:center;">{{pedido.codEstBol}}</td>-->
+    <td style="text-align:center;"><button (click)="onCambiarDeEstado(pedido.codBol)" class="btn btn-sm btn-outline-danger">Finalizar</button></td>
+    <td style="text-align:center;"><button (click)="onVerDetalle(pedido.codBol)" class="btn btn-sm btn-outline-danger">Ver</button></td>
+  </tr>
 </table>

@@ -4,6 +4,8 @@ import { Producto } from 'src/app/shared/producto.model';
 import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from '../shared/usuario.service';
 import { Usuario } from '../shared/usuario.model';
+import { Router } from '@angular/router';
+import { ItemService } from '../shared/item.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,7 @@ import { Usuario } from '../shared/usuario.model';
 export class HomeComponent implements OnInit {
 
   usuario:Usuario;
-  constructor(private service:ProductoService,private toastr:ToastrService,private us:UsuarioService) { }
+  constructor(private service:ProductoService,private toastr:ToastrService,private us:UsuarioService, private _router: Router , private is : ItemService) { }
 
   ngOnInit() {
     this.service.refreshList();
@@ -45,5 +47,9 @@ export class HomeComponent implements OnInit {
       return this.imagenProducto;
   }
 
+  onAgregar(codPro : number){
+    this.is.codigoProducto = codPro;
+    this._router.navigate(['/agregar']);
+  }
 
 }
