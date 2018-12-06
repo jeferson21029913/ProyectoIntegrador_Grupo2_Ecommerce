@@ -28,6 +28,8 @@ import { HomeauxiliarComponent } from './homeauxiliar/homeauxiliar.component';
 import { ItemService } from './shared/item.service';
 import { DetalleService } from './shared/detalle.service';
 import { PedidoService } from './shared/pedido.service';
+import { TarjetaComponent } from './tarjeta/tarjeta.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -51,13 +53,14 @@ const appRoutes: Routes = [
     AppComponent, ProductoComponent,
     ProductosComponent, EmpleadoListComponent,
     ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent,
-    UsuarioComponent, PedidoComponent, DetalleComponent, CarritoComponent, HomeauxiliarComponent],
+    UsuarioComponent, PedidoComponent, DetalleComponent, CarritoComponent, HomeauxiliarComponent, TarjetaComponent],
   imports: [
     BrowserModule, MatSelectModule,
      FormsModule, HttpClientModule,
       BrowserAnimationsModule, ToastrModule.forRoot(),
     MatFormFieldModule, MatSelectModule,
     RouterModule.forRoot(appRoutes,{ useHash:true  }),
+    ReactiveFormsModule
   ],
   providers: [[MarcaService], [CategoriaService], [ProductoService], [UsuarioService] , [ItemService],[DetalleService],[PedidoService]], 
   bootstrap: [AppComponent]
