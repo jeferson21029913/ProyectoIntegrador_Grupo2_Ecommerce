@@ -38,7 +38,7 @@ export class TarjetaComponent implements OnInit {
       codigoSeguridad : new FormControl('')
     });
   }
-
+/*
   posted() {
     const url = "http://localhost:56527/api/Pago/Validar";
 
@@ -60,9 +60,11 @@ export class TarjetaComponent implements OnInit {
       }
     );
   }
+  */
   cobrar(){
 
   }
+
   onSubmit() {
     this.body.numeroTarjeta = this.profileForm.value.tarjeta;
     this.body.TitularTarjeta = this.profileForm.value.titular;
