@@ -9,4 +9,5 @@ export class Item {
     marca : string;
     canItem : number;
     auxImagen : number;
+    subtotalItem:number;
 }

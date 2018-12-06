@@ -33,7 +33,7 @@ export class EmpleadoListComponent implements OnInit {
     this.service.deleteUsuario(usuario).subscribe(res=>{
       this.service.refreshList();
       this.toastr.success('El usuario se eliminó correctamente.','ECOMMERCE');
-      this.service.formData.codUsu=null;
+    /*  this.service.formData.codUsu=null;
       this.service.formData.nomUsu='';
       this.service.formData.apePatUsu='';
       this.service.formData.apeMatUsu='';
@@ -42,7 +42,7 @@ export class EmpleadoListComponent implements OnInit {
       this.service.formData.nickUsu='';
       this.service.formData.pwdUsu='';
       this.service.formData.fechaRegistroUsu='';
-      this.service.formData.mailUsu='';
+      this.service.formData.mailUsu='';*/
       this.service.controlEliminacion=1;
     });
   }}

@@ -45,7 +45,8 @@ export class HomeauxiliarComponent implements OnInit {
       categoria : "",
       marca : "",
       canItem : null,
-      auxImagen : null
+      auxImagen : null,
+      subtotalItem:null
     }
   }
 
@@ -82,9 +83,12 @@ export class HomeauxiliarComponent implements OnInit {
     this.is.formData.marca = this.ms.marcas.find(x=>x.codProdMar==this.producto.codProdMar).nomProdMar;
     this.is.formData.canItem = this.is.cantidad;
     this.is.formData.auxImagen = this.service.auxImagen;
+    this.is.formData.subtotalItem=this.is.formData.canItem*this.is.formData.precioPro;
     this.is.controlItem ++ ;
     this.is.formData.numItem = this.is.controlItem;
-    this.is.carrito.push(this.is.formData);  
+    this.is.carrito.push(this.is.formData); 
+    this.is.total+=this.is.formData.subtotalItem; 
+    //this.is.total=Math.round(this.is.total)*100/100;
     this.is.cantidad = null ;
     this._router.navigate(['/carrito']);
   }

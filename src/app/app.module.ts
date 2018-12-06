@@ -35,6 +35,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'pedidos', component: PedidoComponent },
+  { path: 'pago', component: TarjetaComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'detalle', component: DetalleComponent },
   { path: 'agregar', component: HomeauxiliarComponent },

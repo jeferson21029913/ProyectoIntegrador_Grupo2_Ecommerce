@@ -12,10 +12,11 @@ export class ItemService {
   readonly rootURL = "http://localhost:56527/api/";
   //countItem : number = 0;
   controlItem : number = 0;
+  total:number=0;
 
   carrito : Item[] = [];
   
   constructor() { }
 
-
+  
 }

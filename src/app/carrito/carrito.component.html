@@ -8,15 +8,13 @@
     
 </div>
     <div style="width: 100% ; text-align: center;">
-        <p>Total: S/. {{getTotal()}}</p>
+        <p>Total: S/. {{service.total | number}}</p>
     </div>
 
 
 <table class="highlight" >
     <tr style="cursor: text;background-color: darkgray;" >
         <td style="text-align:center;">Imagen</td>
-        <!--<td style="text-align:center;">Ítem</td>-->
-        <!--<td style="text-align:center;">Código</td>-->
         <td style="text-align:center;">Descripción</td>
         <td style="text-align:center;">Detalle</td>
         <td style="text-align:center;">Categoria</td>
@@ -37,7 +35,7 @@
             <td style="text-align:center;">{{item.marca}}</td>
             <td style="text-align:center;">S/. {{item.precioPro}}</td>
             <td style="text-align:center;">{{item.canItem}}</td>
-            <td style="text-align:center;">S/. {{item.canItem * item.precioPro}}</td>
+            <td style="text-align:center;">S/. {{item.subtotalItem | number}}</td>
             <td style="text-align:center;"><button (click)="onEliminar(item.numItem)" class="btn btn-sm btn-outline-danger">X</button></td>
     </tr>
   </table>

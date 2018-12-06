@@ -18,10 +18,12 @@ export class ProductoService {
   constructor(private http:HttpClient) { }
 
   postProducto(formData: Producto,fileToUpload:File){
+    console.log(formData.precioPro);
     const fd:FormData=new FormData();
     fd.append("descripcionPro",formData.descripcionPro);
     fd.append("detallePro",formData.detallePro);
-    fd.append("precioPro",formData.precioPro.toString());
+    console.log(formData.precioPro.toString());
+    fd.append("precioProx100",(formData.precioPro*100).toString());
     fd.append("stockPro",formData.stockPro.toString());
     fd.append("archivoImagen",fileToUpload,fileToUpload.name);
     fd.append("codProdCat",formData.codProdCat.toString());
@@ -34,7 +36,7 @@ export class ProductoService {
     fd.append("codPro",formData.codPro.toString());
     fd.append("descripcionPro",formData.descripcionPro);
     fd.append("detallePro",formData.detallePro);
-    fd.append("precioPro",formData.precioPro.toString());
+    fd.append("precioProx100",(formData.precioPro*100).toString());
     fd.append("stockPro",formData.stockPro.toString());
     fd.append("archivoImagen",fileToUpload,fileToUpload.name);
     fd.append("codProdCat",formData.codProdCat.toString());

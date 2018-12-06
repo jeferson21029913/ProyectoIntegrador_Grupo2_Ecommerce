@@ -39,6 +39,14 @@ export class AppComponent {
       this._router.navigate(['/login']);
     }
   }
+
+  onCarrito(){
+    if(this.us.formData.codUsu==1){
+      this.toastr.warning('¡El administrador no puede hacer compras!','ECOMMERCE');
+    }else{
+      this._router.navigate(['/carrito']);
+    }
+  }
  
   onSalir(){
     if(this.us.formData.codUsu==null){

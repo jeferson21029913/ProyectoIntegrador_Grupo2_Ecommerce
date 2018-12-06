@@ -80,6 +80,7 @@ export class ProductoComponent implements OnInit {
   }
   
   onRegistrar(form: NgForm) {
+    console.log(form.value);
     this.insertRecord(form);
   }
 

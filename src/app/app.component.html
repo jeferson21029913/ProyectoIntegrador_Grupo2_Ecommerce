@@ -7,17 +7,11 @@
                         <a  [routerLink]="['/home']" class="nav-link" >Home</a>
                       </li>  
                 <li class="nav-item">
-                        <a  [routerLink]="['/carrito']" class="nav-link" >Carrito de compras</a>
+                        <a  (click)="onCarrito()" class="nav-link" >Carrito de compras</a>
                   </li> 
                   <li class="nav-item" >
                       <a  [routerLink]="['/pedidos']" class="nav-link">Pedidos</a>
                 </li> 
-            <li class="nav-item">
-                <a   (click)="onLogin()" class="nav-link" >Ingresar</a>
-              </li> 
-              <li class="nav-item">
-                <a  (click)="onSalir()" class="nav-link">Salir</a>
-              </li> 
                  <div *ngIf="us.formData.codUsu==1">
               <li class="nav-item"  >
                 <a  [routerLink]="['/productos']" class="nav-link">Productos</a>
@@ -26,10 +20,15 @@
                   <a  [routerLink]="['/usuarios']" class="nav-link">Usuarios</a>
             </li> 
             </div>
-            <li class="nav-item" *ngIf="us.formData.codUsu!=null" style="float: right; margin-right: 1%;">
-              <span >{{us.formData.nomUsu}} {{us.formData.apePatUsu}} {{us.formData.apeMatUsu}}
-                </span>
-              </li> 
+              <li class="nav-item" *ngIf="us.formData.codUsu==null" style="float: right; margin-right: 1%;">
+                <a  (click)="onLogin()">Ingresar</a> 
+                </li>
+              <li class="nav-item" *ngIf="us.formData.codUsu!=null" style="float: right; margin-right: 1%;">
+                <a  (click)="onSalir()">Salir </a>
+                </li>
+                <li class="nav-item" *ngIf="us.formData.codUsu!=null" style="float: right; margin-right: 1%;">
+                  <span>{{us.formData.nomUsu}} {{us.formData.apePatUsu}} {{us.formData.apeMatUsu}}</span>
+                  </li> 
       </ul>
 
   </nav>
