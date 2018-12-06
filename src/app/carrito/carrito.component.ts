@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from '../shared/item.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-carrito',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarritoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service : ItemService, private toastr : ToastrService) { }
 
   ngOnInit() {
   }
