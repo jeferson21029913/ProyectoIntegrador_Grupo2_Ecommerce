@@ -1,17 +1,43 @@
-<table style="margin-left: -10%" class="highlight" >
+<div class="row"> 
+    <div class="input-field col s5">
+        <button (click)="onSeguirComprando()" class="btn-large btn-submit" >Seguir comprando</button>
+    </div> 
+    <div class="input-field col s3">
+        <button (click)="onPagar()" class="btn-large btn-submit" >Pagar</button>
+    </div> 
+    
+</div>
+    <div style="width: 100% ; text-align: center;">
+        <p>Total: S/. {{getTotal()}}</p>
+    </div>
+
+
+<table class="highlight" >
     <tr style="cursor: text;background-color: darkgray;" >
         <td style="text-align:center;">Imagen</td>
-        <td style="text-align:center;">Ítem</td>
-        <td style="text-align:center;">Código</td>
+        <!--<td style="text-align:center;">Ítem</td>-->
+        <!--<td style="text-align:center;">Código</td>-->
         <td style="text-align:center;">Descripción</td>
         <td style="text-align:center;">Detalle</td>
-        <td style="text-align:center;">Precio</td>
         <td style="text-align:center;">Categoria</td>
         <td style="text-align:center;">Marca</td>
+        <td style="text-align:center;">Precio</td>
         <td style="text-align:center;">Cantidad</td>
+        <td style="text-align:center;">SubTotal</td>
+        <td style="text-align:center;">Eliminar</td>
     </tr>
 
-    <tr style="cursor: text;" >
-
+    <tr style="cursor: text;" *ngFor="let item of service.carrito">
+            <td style="text-align:center;">
+                <img [src]="getImagen(item.codPro,item.auxImagen)" style="width:30px;height:30px;" />
+            </td> 
+            <td style="text-align:center;">{{item.descripcionPro}}</td>
+            <td style="text-align:center;">{{item.detallePro}}</td>
+            <td style="text-align:center;">{{item.categoria}}</td>
+            <td style="text-align:center;">{{item.marca}}</td>
+            <td style="text-align:center;">S/. {{item.precioPro}}</td>
+            <td style="text-align:center;">{{item.canItem}}</td>
+            <td style="text-align:center;">S/. {{item.canItem * item.precioPro}}</td>
+            <td style="text-align:center;"><button (click)="onEliminar(item.numItem)" class="btn btn-sm btn-outline-danger">X</button></td>
     </tr>
   </table>

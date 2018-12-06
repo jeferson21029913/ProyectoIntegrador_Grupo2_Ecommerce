@@ -20,9 +20,13 @@ export class HomeauxiliarComponent implements OnInit {
 
   ngOnInit() {
     this.service.refreshList();
-    this.producto=this.service.list.find(x=>x.codPro==this.is.codigoProducto);
-    this.cs.listarCategoria();
-    this.ms.listarMarca();
+    if(this.is.codigoProducto != 0){
+      this.producto=this.service.list.find(x=>x.codPro==this.is.codigoProducto);
+      this.cs.listarCategoria();
+      this.ms.listarMarca();
+    } else {
+      this._router.navigate(['/home']);
+    }
   }
 
   producto:Producto;
@@ -30,8 +34,23 @@ export class HomeauxiliarComponent implements OnInit {
   categoria:Categoria;
   marca:Marca;
 
-  getImagen(codPro:number){
-    this.imagenProducto= "http://localhost:56527/api/Producto/obtenerImagen?codPro="+codPro+"&aux="+this.service.auxImagen;
+  inicializarFormData(){
+    this.is.formData = {
+      numItem : null,
+      codPro : null,
+      descripcionPro : "",
+      detallePro : "",
+      precioPro : null,
+      imgPro : "",
+      categoria : "",
+      marca : "",
+      canItem : null,
+      auxImagen : null
+    }
+  }
+
+  getImagen(){
+    this.imagenProducto= "http://localhost:56527/api/Producto/obtenerImagen?codPro="+this.producto.codPro+"&aux="+this.service.auxImagen;
       return this.imagenProducto;
   }
 
@@ -48,16 +67,25 @@ export class HomeauxiliarComponent implements OnInit {
   }
 
   catalogo(){
+    this.is.cantidad = null;
     this._router.navigate(['/home']);
   }
 
   OnSubmit(){
-
-    if(null){
-      
-    }else{
-      this._router.navigate(['/carrito']);
-    }
+    this.inicializarFormData();
+    this.is.formData.codPro = this.producto.codPro;
+    this.is.formData.descripcionPro = this.producto.descripcionPro;
+    this.is.formData.detallePro = this.producto.detallePro;
+    this.is.formData.precioPro = this.producto.precioPro;
+    this.is.formData.imgPro = this.producto.imgPro;
+    this.is.formData.categoria = this.cs.categorias.find(x=>x.codProdCat==this.producto.codProdCat).nomProdCat;
+    this.is.formData.marca = this.ms.marcas.find(x=>x.codProdMar==this.producto.codProdMar).nomProdMar;
+    this.is.formData.canItem = this.is.cantidad;
+    this.is.formData.auxImagen = this.service.auxImagen;
+    this.is.controlItem ++ ;
+    this.is.formData.numItem = this.is.controlItem;
+    this.is.carrito.push(this.is.formData);  
+    this.is.cantidad = null ;
+    this._router.navigate(['/carrito']);
   }
-
 }
