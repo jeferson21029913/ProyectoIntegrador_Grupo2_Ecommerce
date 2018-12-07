@@ -103,7 +103,7 @@ export class TarjetaComponent implements OnInit {
         codBol : this.codBoleta,
         codProd: i.codPro,
         canProd: i.canItem,
-        preProd: i.subtotalItem
+        preProd: i.precioPro
       };
       this.http.post("http://localhost:56527/api/detalleventa/crearDetalleVenta", JSON.stringify(body), httpOptions)
       .subscribe( data => {
