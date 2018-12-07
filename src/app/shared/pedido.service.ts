@@ -11,7 +11,7 @@ export class PedidoService {
   formData : Pedido;
   list : Pedido[];
   readonly rootURL = "http://localhost:56527/api/";
-
+  
   constructor(private http : HttpClient) { }
 
   refreshList(){

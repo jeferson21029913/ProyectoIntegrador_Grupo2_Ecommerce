@@ -17,6 +17,7 @@ export class PendientesComponent implements OnInit {
     private ds : DetalleService,private _router: Router) { }
 
   ngOnInit() {
+    this.ds.controlNav=0;
     this.us.refreshList();
     this.pedidosUsuario = [];
     this.ps.refreshList();

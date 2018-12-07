@@ -17,8 +17,7 @@ export class PedidoComponent implements OnInit {
   constructor(private service : PedidoService, private us:UsuarioService, private ds : DetalleService, private Toastr : ToastrService , private _router: Router) { }
 
   ngOnInit() {
-    //this.service.refreshList();
-    //this.us.refreshList();
+    
   }
 
   

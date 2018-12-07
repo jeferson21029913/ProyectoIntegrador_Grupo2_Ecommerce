@@ -10,6 +10,8 @@ export class DetalleService {
   //formData : Detalle;
   codigo : number = 0;
   list : Detalle[];
+  controlNav:number=0;
+
   readonly rootURL = "http://localhost:56527/api/";
 
   constructor(private http : HttpClient) { }

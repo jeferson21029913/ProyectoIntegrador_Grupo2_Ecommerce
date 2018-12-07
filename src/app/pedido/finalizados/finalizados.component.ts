@@ -18,6 +18,7 @@ export class FinalizadosComponent implements OnInit {
     private ds : DetalleService, private Toastr : ToastrService , private _router: Router) { }
 
   ngOnInit() {
+    this.ds.controlNav=0;
     this.us.refreshList();
     this.pedidosUsuario = [];
     this.ps.refreshList();

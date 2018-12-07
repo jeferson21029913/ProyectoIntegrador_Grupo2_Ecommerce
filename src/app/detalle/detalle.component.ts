@@ -34,7 +34,11 @@ export class DetalleComponent implements OnInit {
   }
 
   onVerPedido(){
-    this._router.navigate(['/pedidos']);
+    if(this.service.controlNav==0){
+    this._router.navigate(['/pendientes']);}
+    else{
+      this._router.navigate(['/finalizados']);
+    }
   }
 
 }
