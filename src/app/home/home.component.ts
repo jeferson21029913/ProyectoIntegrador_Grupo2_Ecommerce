@@ -48,8 +48,25 @@ export class HomeComponent implements OnInit {
   }
 
   onAgregar(codPro : number){
-    this.is.codigoProducto = codPro;
-    this._router.navigate(['/agregar']);
+    if(this.us.formData==null){
+      this.us.formData = {
+        codUsu : null,
+        nomUsu : '',
+        apePatUsu : '',
+        apeMatUsu : '',
+        dniUsu : '',
+        celUsu : '',
+        nickUsu : '',
+        pwdUsu : '',
+        fechaRegistroUsu : '',
+        mailUsu : '',
+      }
+    }
+    if(this.us.formData.codUsu == 1){
+      this.toastr.warning("El administrador no puede hacer compras.","ECOMMERCE")
+    } else {
+      this.is.codigoProducto = codPro;
+      this._router.navigate(['/agregar']);
+    }
   }
-
 }

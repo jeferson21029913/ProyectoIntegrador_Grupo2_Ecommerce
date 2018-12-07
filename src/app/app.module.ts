@@ -30,6 +30,8 @@ import { DetalleService } from './shared/detalle.service';
 import { PedidoService } from './shared/pedido.service';
 import { TarjetaComponent } from './tarjeta/tarjeta.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PendientesComponent } from './pedido/pendientes/pendientes.component';
+import { FinalizadosComponent } from './pedido/finalizados/finalizados.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -46,6 +48,10 @@ const appRoutes: Routes = [
   children:[{path:'',component:RegistroComponent }]},
   { path : 'login', component: UsuarioComponent,
   children:[{path:'',component:LoginComponent }]},
+  { path : 'pendientes', component: PedidoComponent,
+  children:[{path:'',component:PendientesComponent }]},
+  { path : 'finalizados', component: PedidoComponent,
+  children:[{path:'',component:FinalizadosComponent }]},
   //{ path : 'usuario', redirectTo:'/login', pathMatch : 'full'}
 ];
 
@@ -54,7 +60,7 @@ const appRoutes: Routes = [
     AppComponent, ProductoComponent,
     ProductosComponent, EmpleadoListComponent,
     ProductoListComponent, UsuarioComponent, LoginComponent, RegistroComponent, HomeComponent,
-    UsuarioComponent, PedidoComponent, DetalleComponent, CarritoComponent, HomeauxiliarComponent, TarjetaComponent],
+    UsuarioComponent, PedidoComponent, DetalleComponent, CarritoComponent, HomeauxiliarComponent, TarjetaComponent, PendientesComponent, FinalizadosComponent],
   imports: [
     BrowserModule, MatSelectModule,
      FormsModule, HttpClientModule,

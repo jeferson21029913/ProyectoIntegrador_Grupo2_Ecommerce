@@ -3,6 +3,7 @@ import { UsuarioService } from './shared/usuario.service';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from './shared/usuario.model';
 import { Router } from '@angular/router';
+import { ItemService } from './shared/item.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'Angular7';
   private usuario:Usuario;
-  constructor(private us:UsuarioService,private toastr: ToastrService,private _router: Router) { }
+  constructor(private us:UsuarioService,private is : ItemService,private toastr: ToastrService,private _router: Router) { }
   
   ngOnInit() {
       this.us.formData = {
@@ -66,6 +67,8 @@ export class AppComponent {
         mailUsu : '',
       }
       this.usuario=this.us.formData;
+      this.is.carrito = [];
+      this.is.total = 0;
       this.toastr.success('¡Salida exitosa!','ECOMMERCE');
       this._router.navigate(['/home']);
     }}
