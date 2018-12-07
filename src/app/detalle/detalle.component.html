@@ -1,4 +1,8 @@
-<td style="text-align:center;"><button (click)="onVerPedido()" class="btn btn-sm btn-outline-danger">Regresar</button></td>
+<div class="row"> 
+  <div class="input-field col s5">
+    <button (click)="onVerPedido()" class="btn btn-sm btn-outline-danger">Regresar</button>
+  </div> 
+</div>
 <table style="margin-left: -10%" class="highlight" >
   <tr style="cursor: text;background-color: darkgray;" >
       <td style="text-align:center;">Imagen</td>
@@ -18,6 +22,6 @@
     <td style="text-align:center;" *ngIf="service.codigo==detalle.codBol">{{getProducto(detalle.codProd)}}</td>
     <td style="text-align:center;" *ngIf="service.codigo==detalle.codBol">{{detalle.canProd}}</td>
     <td style="text-align:center;" *ngIf="service.codigo==detalle.codBol">S/. {{detalle.preProd}}</td>
-    <td style="text-align:center;" *ngIf="service.codigo==detalle.codBol">S/. {{detalle.canProd * detalle.preProd}}</td>
+    <td style="text-align:center;" *ngIf="service.codigo==detalle.codBol">S/. {{detalle.canProd * detalle.preProd | number}}</td>
   </tr>
 </table>

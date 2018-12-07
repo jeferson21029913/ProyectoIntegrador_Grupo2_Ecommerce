@@ -46,7 +46,9 @@ export class RegistroComponent implements OnInit {
     this.u=this.us.list.find(x=>x.nickUsu==this.usuario.nickUsu);
     console.log(this.u);
     if(this.u==null)
-    {this.insertRecord(form);}
+    {this.insertRecord(form);
+      this._router.navigate(['/login']);
+    }
     else{
       this.toastr.warning('¡Nombre de usuario no disponible!','ECOMMERCE');
     }

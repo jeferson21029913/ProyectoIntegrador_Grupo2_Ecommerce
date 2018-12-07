@@ -18,4 +18,13 @@ export class PedidoService {
     this.http.get(this.rootURL+'Venta/listarTodasLasVentas').toPromise().then(res => this.list = res as Pedido[])
   }
 
+  /*putPedido(formData: Pedido){
+    console.log(formData);
+    return this.http.post(this.rootURL+'Producto/actualizarProducto',formData);
+  }*/
+
+  actualizarEstado(){
+
+  }
+
 }
