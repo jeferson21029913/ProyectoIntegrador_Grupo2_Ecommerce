@@ -5,18 +5,18 @@
       <td style="text-align:center;">Fecha</td>
       <!--<td style="text-align:center;">Número de tarjeta</td>-->
       <td style="text-align:center;">Monto total</td>
-      <td style="text-align:center;">Estado</td>
+      <td style="text-align:center;" *ngIf="us.formData.codUsu == 1">Estado</td>
       <td style="text-align:center;">Detalle</td>
   </tr>
 
-  <tr style="cursor: text;" *ngFor="let pedido of pedidos">
+  <tr style="cursor: text;" *ngFor="let pedido of pedidosUsuario">
     <td style="text-align:center;" *ngIf="pedido.codEstBol==2">{{pedido.codBol}}</td>
     <td style="text-align:center;" *ngIf="pedido.codEstBol==2">{{getUsuario(pedido.codUsu)}}</td>
     <td style="text-align:center;" *ngIf="pedido.codEstBol==2">{{pedido.fechaBol.substring(0,10)}}</td>
     <!--<td style="text-align:center;">{{pedido.numTarjeta}}</td>-->
     <td style="text-align:center;" *ngIf="pedido.codEstBol==2">S/. {{pedido.precioTotal|number}}</td>
     <!--<td style="text-align:center;">{{pedido.codEstBol}}</td>-->
-    <td style="text-align:center;" *ngIf="pedido.codEstBol==2"><button (click)="onCambiarDeEstado(pedido.codBol)" class="btn btn-sm btn-outline-danger">Finalizar</button></td>
+    <td style="text-align:center;" *ngIf="pedido.codEstBol==2 && us.formData.codUsu == 1"><button (click)="onCambiarDeEstado(pedido.codBol)" class="btn btn-sm btn-outline-danger">Finalizar</button></td>
     <td style="text-align:center;" *ngIf="pedido.codEstBol==2"><button (click)="onVerDetalle(pedido.codBol)" class="btn btn-sm btn-outline-danger">Ver</button></td>
   </tr>
 </table>

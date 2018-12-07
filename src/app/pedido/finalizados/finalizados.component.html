@@ -9,7 +9,7 @@
       <td style="text-align:center;">Detalle</td>
   </tr>
 
-  <tr style="cursor: text;" *ngFor="let pedido of service.list">
+  <tr style="cursor: text;" *ngFor="let pedido of pedidosUsuario">
     <td style="text-align:center;" *ngIf="pedido.codEstBol==1">{{pedido.codBol}}</td>
     <td style="text-align:center;" *ngIf="pedido.codEstBol==1">{{getUsuario(pedido.codUsu)}}</td>
     <td style="text-align:center;" *ngIf="pedido.codEstBol==1">{{pedido.fechaBol.substring(0,10)}}</td>

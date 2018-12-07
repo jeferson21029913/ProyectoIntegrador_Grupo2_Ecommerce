@@ -44,10 +44,12 @@ const appRoutes: Routes = [
   { path: 'usuario', component: UsuarioComponent },
   {path: 'productos', component: ProductosComponent },
   {path: 'usuarios', component: EmpleadoListComponent },
+
   { path : 'registro', component: UsuarioComponent,
   children:[{path:'',component:RegistroComponent }]},
   { path : 'login', component: UsuarioComponent,
   children:[{path:'',component:LoginComponent }]},
+  
   { path : 'pendientes', component: PedidoComponent,
   children:[{path:'',component:PendientesComponent }]},
   { path : 'finalizados', component: PedidoComponent,

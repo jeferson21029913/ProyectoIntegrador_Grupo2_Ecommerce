@@ -6,11 +6,11 @@
                 <li class="nav-item">
                         <a  [routerLink]="['/home']" class="nav-link" >Home</a>
                       </li>  
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="us.formData.codUsu !=1">
                         <a  (click)="onCarrito()" class="nav-link" >Carrito de compras</a>
                   </li> 
-                  <li class="nav-item" >
-                      <a  [routerLink]="['/pedidos']" class="nav-link">Pedidos</a>
+                  <li class="nav-item" *ngIf="us.formData.codUsu != null">
+                      <a  [routerLink]="['/pendientes']" class="nav-link">Pedidos</a>
                 </li> 
                  <div *ngIf="us.formData.codUsu==1">
               <li class="nav-item"  >
