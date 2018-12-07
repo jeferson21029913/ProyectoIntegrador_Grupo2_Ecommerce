@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { HttpHeaders } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ItemService } from '../shared/item.service';
+import { UsuarioService } from '../shared/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tarjeta',
@@ -26,7 +29,10 @@ export class TarjetaComponent implements OnInit {
 
   apiUrl = "http://localhost:56527/api/Pago/Validar";
 
-  constructor(private http: HttpClient) { }
+  codBoleta;
+
+  constructor(private http: HttpClient, private itemService: ItemService, private usuarioService: UsuarioService,
+    private router: Router) { }
 
   ngOnInit() {
     this.profileForm = new FormGroup({
@@ -37,6 +43,7 @@ export class TarjetaComponent implements OnInit {
       año : new FormControl(''),
       codigoSeguridad : new FormControl('')
     });
+    this.mostrarProd();
   }
 /*
   posted() {
@@ -62,7 +69,53 @@ export class TarjetaComponent implements OnInit {
   }
   */
   cobrar(){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    let total;
+    this.itemService.carrito.forEach( (i) => {
+      total =+ i.subtotalItem 
+    } )
+    const body = {
+      codUsu : this.usuarioService.formData.codUsu,
+      numTarjeta: this.body.numeroTarjeta,
+      precioTotal: total,
+      codEstBol: "2"
+    };
+    this.http.post("http://localhost:56527/api/venta/crearVenta", JSON.stringify(body), httpOptions)
+      .subscribe( (data) => {
+        console.log(data);
+        this.codBoleta = data;
+        this.registrarDetalle();
+      });
+  }
 
+  registrarDetalle() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    this.itemService.carrito.forEach( (i) => {
+      const body = {
+        codBol : this.codBoleta,
+        codProd: i.codPro,
+        canProd: i.canItem,
+        preProd: i.subtotalItem
+      };
+      this.http.post("http://localhost:56527/api/detalleventa/crearDetalleVenta", JSON.stringify(body), httpOptions)
+      .subscribe( data => {
+        console.log(data);
+        if (data === "Detalle CREADO") {
+          this.itemService.carrito = []; 
+          this.itemService.total = 0;
+          this.router.navigate(['/home']);
+        }
+      });
+    } );
+    
   }
 
   onSubmit() {
@@ -90,5 +143,9 @@ export class TarjetaComponent implements OnInit {
         }
       }
     );
+  }
+  mostrarProd() {
+    console.log(this.itemService.carrito);
+    console.log(this.usuarioService.formData)
   }
 }
