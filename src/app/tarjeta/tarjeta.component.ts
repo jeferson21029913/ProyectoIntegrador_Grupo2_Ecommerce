@@ -5,6 +5,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ItemService } from '../shared/item.service';
 import { UsuarioService } from '../shared/usuario.service';
 import { Router } from '@angular/router';
+import { PedidoService } from '../shared/pedido.service';
 
 @Component({
   selector: 'app-tarjeta',
@@ -32,7 +33,7 @@ export class TarjetaComponent implements OnInit {
   codBoleta;
 
   constructor(private http: HttpClient, private itemService: ItemService, private usuarioService: UsuarioService,
-    private router: Router) { }
+    private router: Router,private ps: PedidoService) { }
 
   ngOnInit() {
     this.profileForm = new FormGroup({
@@ -130,6 +131,8 @@ export class TarjetaComponent implements OnInit {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
       })
+
+
     };
 
     this.http.post(this.apiUrl, JSON.stringify(this.body), httpOptions).subscribe(
@@ -143,6 +146,7 @@ export class TarjetaComponent implements OnInit {
         }
       }
     );
+    this.ps.refreshList();
   }
   mostrarProd() {
     console.log(this.itemService.carrito);

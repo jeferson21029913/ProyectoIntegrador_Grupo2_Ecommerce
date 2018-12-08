@@ -5,6 +5,7 @@ import { UsuarioService } from 'src/app/shared/usuario.service';
 import { DetalleService } from 'src/app/shared/detalle.service';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/shared/usuario.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-pendientes',
@@ -14,7 +15,7 @@ import { Usuario } from 'src/app/shared/usuario.model';
 export class PendientesComponent implements OnInit {
 
   constructor(private ps: PedidoService, private us: UsuarioService,
-    private ds : DetalleService,private _router: Router) { }
+    private ds : DetalleService,private _router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.ds.controlNav=0;
@@ -64,12 +65,25 @@ export class PendientesComponent implements OnInit {
 
   onCambiarDeEstado(pedido:Pedido){
     pedido.codEstBol=1;
+    this.updatePedido(pedido);
+    this.ps.refreshList();
+    this.cargarPedidosUsuario();
+    /*pedido.codEstBol=1;
     this.ps.actualizarEstado(pedido);
     console.log(pedido.codEstBol);
     this.ps.refreshList();
-    this.cargarPedidosUsuario();
+    this.cargarPedidosUsuario();*/
   }
 
+ 
+  updatePedido(pedido:Pedido) {
+    if (confirm('¿Está seguro de que desea finalizar este pedido?')) {
+      this.ps.actualizarEstado(pedido).subscribe(res => {
+        this.toastr.success('El pedido se finalizó correctamente.', 'ECOMMERCE');
+      });
+    }
+  }
+ 
   
 
 }
