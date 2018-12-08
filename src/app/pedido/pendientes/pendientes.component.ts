@@ -52,10 +52,24 @@ export class PendientesComponent implements OnInit {
     }
   }
 
+  /*pedido:Pedido;
+  this.pedido = {
+    codBol: codBol,
+    codEstBol: 1,
+    codUsu:1,
+    fechaBol:'',
+    numTarjeta:'',
+    precioTotal:0
+  }*/
 
-  onCambiarDeEstado(codBol:number){
-    
+  onCambiarDeEstado(pedido:Pedido){
+    pedido.codEstBol=1;
+    this.ps.actualizarEstado(pedido);
+    console.log(pedido.codEstBol);
+    this.ps.refreshList();
+    this.cargarPedidosUsuario();
   }
 
+  
 
 }

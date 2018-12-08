@@ -16,7 +16,7 @@
     <!--<td style="text-align:center;">{{pedido.numTarjeta}}</td>-->
     <td style="text-align:center;" *ngIf="pedido.codEstBol==2">S/. {{pedido.precioTotal|number}}</td>
     <!--<td style="text-align:center;">{{pedido.codEstBol}}</td>-->
-    <td style="text-align:center;" *ngIf="pedido.codEstBol==2 && us.formData.codUsu == 1"><button (click)="onCambiarDeEstado(pedido.codBol)" class="btn btn-sm btn-outline-danger">Finalizar</button></td>
+    <td style="text-align:center;" *ngIf="pedido.codEstBol==2 && us.formData.codUsu == 1"><button (click)="onCambiarDeEstado(pedido)" class="btn btn-sm btn-outline-danger">Finalizar</button></td>
     <td style="text-align:center;" *ngIf="pedido.codEstBol==2"><button (click)="onVerDetalle(pedido.codBol)" class="btn btn-sm btn-outline-danger">Ver</button></td>
   </tr>
 </table>

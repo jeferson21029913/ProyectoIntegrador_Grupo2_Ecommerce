@@ -74,14 +74,14 @@ export class TarjetaComponent implements OnInit {
         'Content-Type':  'application/json',
       })
     };
-    let total;
+   /* let total;
     this.itemService.carrito.forEach( (i) => {
       total =+ i.subtotalItem 
-    } )
+    } )*/
     const body = {
       codUsu : this.usuarioService.formData.codUsu,
       numTarjeta: this.body.numeroTarjeta,
-      precioTotal: total,
+      precioTotal: this.itemService.total,
       codEstBol: "2"
     };
     this.http.post("http://localhost:56527/api/venta/crearVenta", JSON.stringify(body), httpOptions)

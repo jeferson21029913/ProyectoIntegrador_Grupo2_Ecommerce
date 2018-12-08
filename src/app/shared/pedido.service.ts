@@ -23,8 +23,10 @@ export class PedidoService {
     return this.http.post(this.rootURL+'Producto/actualizarProducto',formData);
   }*/
 
-  actualizarEstado(){
-
+  actualizarEstado(pedido: Pedido){
+    console.log(pedido);
+    return this.http.post(this.rootURL+'venta/actualizarEstadoVenta',pedido);
   }
+
 
 }
